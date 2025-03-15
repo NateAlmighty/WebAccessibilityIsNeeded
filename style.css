@@ -11,8 +11,25 @@ START Glitch hello-app default styles
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
-  --font-family: "HK Grotesk";
-  --font-family-header: "HK Grotesk";
+  --font-family: "HK Grotesk", sans-serif;
+  --font-family-header: "HK Grotesk", sans-serif;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+    format("opentype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 /* Basic page style resets */
@@ -23,19 +40,6 @@ START Glitch hello-app default styles
   display: none !important;
 }
 
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
-    format("opentype");
-}
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
-}
-
 /* Navigation grid */
 .footer {
   display: flex;
@@ -44,21 +48,22 @@ START Glitch hello-app default styles
   padding: 1rem 0 0.75rem 0;
   width: 100%;
   flex-wrap: wrap;
-  border-top: 4px solid #fff;
+  border-top: 4px solid #ffffff;
 }
 
-.footer :not(.btn--remix):link,
-a:not(.btn--remix):visited {
-  font-family: HK Grotesk;
+.footer a:hover {
+  background: var(--color-primary);
+}
+
+.footer a:not(.btn--remix):link,
+.footer a:not(.btn--remix):visited {
+  font-family: "HK Grotesk", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.1rem;
-  color: #000;
+  color: #000000;
   text-decoration: none;
   border-style: none;
-}
-.footer a:hover {
-  background: var(--color-primary);
 }
 
 .footer .links {
@@ -69,6 +74,7 @@ a:not(.btn--remix):visited {
 .divider {
   padding: 0 1rem;
 }
+
 /******************************************************************************
 END Glitch hello-app default styles
 ******************************************************************************/
@@ -134,23 +140,6 @@ button {
 
 button:hover {
   background-color: #ffd700; /* A darker yellow for hover */
-}
-
-/* Blind Users Section */
-#screen-reader-demo-button {
-  display: block;
-  margin: 1rem 0;
-}
-
-/* Colorblind Users Section */
-.colorblind-view {
-  filter: grayscale(100%);
-}
-
-/* Keyboard-Only Navigation Section */
-.keyboard-demo button:focus {
-  outline: 3px solid var(--color-text-header);
-  outline-offset: 2px;
 }
 
 /* Visually hidden utility class (for screen readers) */

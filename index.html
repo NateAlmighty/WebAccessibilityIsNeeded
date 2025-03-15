@@ -114,31 +114,113 @@
           </div>
         </section>
 
-        <!-- Screen Reader Demo -->
-        <section aria-labelledby="screen-reader-demo-heading">
-          <h2 id="screen-reader-demo-heading">Screen Reader Demo</h2>
+        <!-- Semantic HTML Example -->
+        <section aria-labelledby="semantic-html-heading">
+          <h2 id="semantic-html-heading">Semantic HTML: Accessible vs. Inaccessible</h2>
           <p>
-            Experience how a screen reader interacts with accessible and
-            inaccessible content.
+            Semantic HTML helps screen readers interpret the structure of your site correctly.
           </p>
-          <button
-            id="screen-reader-demo-button"
-            aria-label="Play screen reader demo"
-          >
-            Play Screen Reader Demo
-          </button>
+          <div class="demo accessible-demo">
+            <h3>Accessible Semantic HTML</h3>
+            <p>
+              This example uses semantic HTML elements like <code><header></code>, <code><main></code>, and <code><footer></code>.
+            </p>
+            <header>
+              <h1>Website Header</h1>
+            </header>
+            <main>
+              <p>This is the main content area.</p>
+            </main>
+            <footer>
+              <p>Website Footer</p>
+            </footer>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Non-Semantic HTML</h3>
+            <p>
+              This example uses generic <code><div></code> tags without semantic meaning.
+            </p>
+            <div>
+              <h1>Website Header</h1>
+            </div>
+            <div>
+              <p>This is the main content area.</p>
+            </div>
+            <div>
+              <p>Website Footer</p>
+            </div>
+          </div>
         </section>
 
-        <!-- Colorblindness Demo -->
-        <section aria-labelledby="colorblind-demo-heading">
-          <h2 id="colorblind-demo-heading">Colorblindness Demo</h2>
+        <!-- Text Alternatives Example -->
+        <section aria-labelledby="text-alternatives-heading">
+          <h2 id="text-alternatives-heading">Text Alternatives: Accessible vs. Inaccessible</h2>
           <p>
-            See how color choices affect readability for users with
-            colorblindness.
+            Providing descriptive <code>alt</code> attributes ensures images are accessible to users with visual impairments.
           </p>
-          <button id="colorblind-toggle" aria-pressed="false">
-            Toggle Colorblind View
-          </button>
+          <div class="demo accessible-demo">
+            <h3>Accessible Image with Alt Text</h3>
+            <p>
+              This image has a descriptive <code>alt</code> attribute.
+            </p>
+            <img src="https://via.placeholder.com/150" alt="A placeholder image with a gray background and text 'Placeholder'" />
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Image Without Alt Text</h3>
+            <p>
+              This image lacks an <code>alt</code> attribute.
+            </p>
+            <img src="https://via.placeholder.com/150" />
+          </div>
+        </section>
+
+        <!-- Color Contrast Example -->
+        <section aria-labelledby="color-contrast-heading">
+          <h2 id="color-contrast-heading">Color Contrast: Accessible vs. Inaccessible</h2>
+          <p>
+            Sufficient color contrast ensures text is readable for users with low vision.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Color Contrast</h3>
+            <p style="background-color: #ffffff; color: #000000;">
+              This text has sufficient contrast.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Color Contrast</h3>
+            <p style="background-color: #cccccc; color: #999999;">
+              This text has poor contrast.
+            </p>
+          </div>
+        </section>
+
+        <!-- Error Handling Example -->
+        <section aria-labelledby="error-handling-heading">
+          <h2 id="error-handling-heading">Error Handling: Accessible vs. Inaccessible</h2>
+          <p>
+            Clear error messages help users understand and fix issues.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Error Handling</h3>
+            <form>
+              <label for="email-accessible">Email:</label>
+              <input type="email" id="email-accessible" required />
+              <button type="submit">Submit</button>
+            </form>
+            <p>
+              <strong>Try it:</strong> Leave the email field empty and submit the form. Notice the clear error message.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Error Handling</h3>
+            <form>
+              <input type="email" id="email-inaccessible" required />
+              <button type="submit">Submit</button>
+            </form>
+            <p>
+              <strong>Try it:</strong> Leave the email field empty and submit the form. Notice the lack of guidance.
+            </p>
+          </div>
         </section>
 
         <!-- Call to Action -->

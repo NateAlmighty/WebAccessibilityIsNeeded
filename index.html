@@ -273,6 +273,66 @@
           </div>
         </section>
 
+        <!-- Seizure Prevention -->
+        <section aria-labelledby="seizure-prevention-heading">
+          <h2 id="seizure-prevention-heading">
+            Seizure Prevention: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Avoid animations or flashing content that could trigger seizures or
+            physical reactions.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Animation</h3>
+            <p>This animation is safe and does not flash excessively.</p>
+            <div
+              class="safe-element"
+              style="animation: safe-animation 2s infinite"
+            >
+              Safe Animation
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Flashing Content</h3>
+            <p>
+              This content flashes excessively and poses a risk to users with
+              photosensitive epilepsy.
+            </p>
+            <div
+              class="unsafe-element"
+              style="animation: unsafe-animation 0.5s infinite"
+            >
+              Flashing Content
+            </div>
+          </div>
+        </section>
+
+        <!-- Language and Localization -->
+        <section aria-labelledby="language-localization-heading">
+          <h2 id="language-localization-heading">
+            Language and Localization: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Declare the default language of the page and identify parts written
+            in different languages.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Language Declaration</h3>
+            <p>
+              This page declares its language using the
+              <code>lang</code> attribute.
+            </p>
+            <code>html lang="en"</code>
+            <p lang="es">Hola, mundo.</p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Missing Language Declaration</h3>
+            <p>This page lacks a <code>lang</code> attribute.</p>
+            <code>html</code>
+            <p>Hola, mundo.</p>
+          </div>
+        </section>
+
         <!-- Call to Action -->
         <section aria-labelledby="cta-heading">
           <h2 id="cta-heading">Let’s Work Together</h2>

@@ -9,7 +9,12 @@ console.log("Accessibility Portfolio Loaded");
 
 // Colorblind Toggle Logic
 const colorblindToggle = document.getElementById("colorblind-toggle");
-const modes = ["normal", "protanopia-view", "deuteranopia-view", "tritanopia-view"];
+const modes = [
+  "default-view",
+  "protanopia-view",
+  "deuteranopia-view",
+  "tritanopia-view",
+];
 let currentModeIndex = 0;
 
 if (colorblindToggle) {
@@ -21,16 +26,18 @@ if (colorblindToggle) {
     currentModeIndex = (currentModeIndex + 1) % modes.length;
 
     // Apply the new mode
-    if (modes[currentModeIndex] !== "normal") {
+    if (modes[currentModeIndex] !== "default-view") {
       document.body.classList.add(modes[currentModeIndex]);
     }
 
-    // Update the button text and state
-    const isColorblind = modes[currentModeIndex] !== "normal";
+    // Update the button text to reflect the NEXT mode
+    const nextModeIndex = (currentModeIndex + 1) % modes.length;
+    const nextModeName = modes[nextModeIndex].replace("-view", "");
+    colorblindToggle.textContent = `Toggle ${nextModeName} View`;
+
+    // Update the aria-pressed attribute
+    const isColorblind = modes[currentModeIndex] !== "default-view";
     colorblindToggle.setAttribute("aria-pressed", isColorblind);
-    colorblindToggle.textContent = isColorblind
-      ? `Toggle ${modes[currentModeIndex].replace("-view", "")} View`
-      : "Toggle Normal View";
   };
 }
 

@@ -231,227 +231,237 @@
         </section>
         <section>
           <!-- Colorblind Toggle Button -->
-          <button id="colorblind-toggle" aria-pressed="false">Toggle Default View</button>
+          <button id="colorblind-toggle" aria-pressed="false">
+            Toggle Default View
+          </button>
 
           <!-- SVG Filters for Colorblindness Simulation -->
           <svg class="defs-only" xmlns="http://www.w3.org/2000/svg">
             <!-- Protanopia Filter -->
             <filter id="colorblind-protanopia">
-              <feColorMatrix
+              <fecolormatrix
                 type="matrix"
                 values="0.567 0.433 0 0 0
                         0.558 0.442 0 0 0
                         0 0.242 0.758 0 0
-                        0 0 0 1 0" />
+                        0 0 0 1 0"
+              />
             </filter>
 
             <!-- Deuteranopia Filter -->
             <filter id="colorblind-deuteranopia">
-              <feColorMatrix
+              <fecolormatrix
                 type="matrix"
                 values="0.625 0.375 0 0 0
                         0.7 0.3 0 0 0
                         0 0.3 0.7 0 0
-                        0 0 0 1 0" />
+                        0 0 0 1 0"
+              />
             </filter>
 
             <!-- Tritanopia Filter -->
             <filter id="colorblind-tritanopia">
-              <fecolorMatrix
+              <fecolormatrix
                 type="matrix"
                 values="0.95 0.05 0 0 0
                         0 0.433 0.567 0 0
                         0 0.475 0.525 0 0
-                        0 0 0 1 0" />
+                        0 0 0 1 0"
+              />
             </filter>
           </svg>
           <!-- Accessible vs Inaccessible Features Section -->
-        <section id="colorblind-explanation">
-          <h2>Accessible vs Inaccessible Features for Colorblind Users</h2>
-          <div class="demo-container">
-            <div class="demo-item accessible-demo">
-              <h3>Accessible Feature</h3>
-              <p>
-                This text uses high contrast and patterns to ensure readability
-              </p>
-              <div class="example-box">
-                <span style="background-color: black; color: white"
-                  >High Contrast Text</span
-                >
-                <span style="background-color: #ccc; color: black"
-                  >Patterned Background</span
-                >
+          <section id="colorblind-explanation">
+            <h2>Accessible vs Inaccessible Features for Colorblind Users</h2>
+            <div class="demo-container">
+              <div class="demo-item accessible-demo">
+                <h3>Accessible Feature</h3>
+                <p>
+                  This text uses high contrast and patterns to ensure
+                  readability
+                </p>
+                <div class="example-box">
+                  <span style="background-color: black; color: white"
+                    >High Contrast Text</span
+                  >
+                  <span style="background-color: #ccc; color: black"
+                    >Patterned Background</span
+                  >
+                </div>
+              </div>
+              <div class="demo-item inaccessible-demo">
+                <h3>Inaccessible Feature</h3>
+                <p>
+                  This text relies only on color, making it difficult for
+                  colorblind users to distinguish.
+                </p>
+                <div class="example-box">
+                  <span
+                    class="fake-nav"
+                    style="background-color: red; color: darkred"
+                    >Problematic Red</span
+                  >
+                  <span
+                    class="fake-nav"
+                    style="background-color: green; color: darkgreen"
+                    >Problematic Green</span
+                  >
+                </div>
               </div>
             </div>
-            <div class="demo-item inaccessible-demo">
-              <h3>Inaccessible Feature</h3>
+          </section>
+
+          <!-- Video Accessibility -->
+          <section aria-labelledby="audio-video-heading">
+            <h2 id="audio-video-heading">
+              Videos: Accessible vs. Inaccessible
+            </h2>
+            <p>
+              Videos should include captions or transcripts to ensure
+              accessibility.
+            </p>
+            <div class="demo accessible-demo">
+              <h3>Accessible Video</h3>
               <p>
-                This text relies only on color, making it difficult for
-                colorblind users to distinguish.
+                This video includes captions and allows users to control
+                playback.
               </p>
-              <div class="example-box">
-                <span
-                  class="fake-nav"
-                  style="background-color: red; color: darkred"
-                  >Problematic Red</span
-                >
-                <span
-                  class="fake-nav"
-                  style="background-color: green; color: darkgreen"
-                  >Problematic Green</span
-                >
+              <video controls width="320">
+                <source
+                  src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/accessible_video.mp4?v=1742070950830"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="demo inaccessible-demo">
+              <h3>Inaccessible Video</h3>
+              <p>
+                This video lacks captions, making it inaccessible to users who
+                rely on them.
+              </p>
+              <video controls width="320">
+                <source
+                  src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/inaccessible_video.mp4?v=1742071407990"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </section>
+
+          <!-- Visual Design -->
+          <section aria-labelledby="visual-design-heading">
+            <h2 id="visual-design-heading">
+              Visual Design: Accessible vs. Inaccessible
+            </h2>
+            <p>
+              Sufficient color contrast, text alternatives, and reflow ensure
+              content is perceivable for all users.
+            </p>
+            <div class="demo accessible-demo">
+              <h3>Accessible Visual Design</h3>
+              <p>
+                This example provides sufficient contrast, descriptive alt text,
+                and zoom-friendly layout.
+              </p>
+              <img
+                src="https://via.placeholder.com/150"
+                alt="A placeholder image with a gray background and text 'Placeholder'"
+              />
+              <p style="background-color: #ffffff; color: #000000">
+                This text has sufficient contrast.
+              </p>
+              <div style="max-width: 800px; margin: auto; padding: 1rem">
+                <p>
+                  Zoom in on this text and notice how it adjusts without
+                  breaking the layout.
+                </p>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- Video Accessibility -->
-        <section aria-labelledby="audio-video-heading">
-          <h2 id="audio-video-heading">Videos: Accessible vs. Inaccessible</h2>
-          <p>
-            Videos should include captions or transcripts to ensure
-            accessibility.
-          </p>
-          <div class="demo accessible-demo">
-            <h3>Accessible Video</h3>
-            <p>
-              This video includes captions and allows users to control playback.
-            </p>
-            <video controls width="320">
-              <source
-                src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/accessible_video.mp4?v=1742070950830"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="demo inaccessible-demo">
-            <h3>Inaccessible Video</h3>
-            <p>
-              This video lacks captions, making it inaccessible to users who
-              rely on them.
-            </p>
-            <video controls width="320">
-              <source
-                src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/inaccessible_video.mp4?v=1742071407990"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </section>
-
-        <!-- Visual Design -->
-        <section aria-labelledby="visual-design-heading">
-          <h2 id="visual-design-heading">
-            Visual Design: Accessible vs. Inaccessible
-          </h2>
-          <p>
-            Sufficient color contrast, text alternatives, and reflow ensure
-            content is perceivable for all users.
-          </p>
-          <div class="demo accessible-demo">
-            <h3>Accessible Visual Design</h3>
-            <p>
-              This example provides sufficient contrast, descriptive alt text,
-              and zoom-friendly layout.
-            </p>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="A placeholder image with a gray background and text 'Placeholder'"
-            />
-            <p style="background-color: #ffffff; color: #000000">
-              This text has sufficient contrast.
-            </p>
-            <div style="max-width: 800px; margin: auto; padding: 1rem">
+            <div class="demo inaccessible-demo">
+              <h3>Inaccessible Visual Design</h3>
               <p>
-                Zoom in on this text and notice how it adjusts without breaking
-                the layout.
+                This example lacks alt text, has poor contrast, and breaks when
+                zoomed in.
               </p>
-            </div>
-          </div>
-          <div class="demo inaccessible-demo">
-            <h3>Inaccessible Visual Design</h3>
-            <p>
-              This example lacks alt text, has poor contrast, and breaks when
-              zoomed in.
-            </p>
-            <img src="https://via.placeholder.com/150" />
-            <p style="background-color: #cccccc; color: #999999">
-              This text has poor contrast.
-            </p>
-            <div style="width: 1200px">
-              <p>
-                Zoom in on this text and notice how it overflows or becomes
-                unreadable.
+              <img src="https://via.placeholder.com/150" />
+              <p style="background-color: #cccccc; color: #999999">
+                This text has poor contrast.
               </p>
+              <div style="width: 1200px">
+                <p>
+                  Zoom in on this text and notice how it overflows or becomes
+                  unreadable.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Call to Action -->
-        <section
-          aria-labelledby="cta-heading"
-          style="
-            text-align: center;
-            padding: 40px;
-            background-color: #e8e8e8;
-            border-radius: 10px;
-            boxshadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          "
-        >
-          <h2
-            id="cta-heading"
-            style="font-size: 2rem; color: #333; margin-bottom: 20px"
-          >
-            Let’s Work Together
-          </h2>
-          <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px">
-            Ready to make your website accessible? Let’s build a web that works
-            for everyone.
-          </p>
-          <div
+          <!-- Call to Action -->
+          <section
+            aria-labelledby="cta-heading"
             style="
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 15px;
+              text-align: center;
+              padding: 40px;
+              background-color: #e8e8e8;
+              border-radius: 10px;
+              boxshadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             "
           >
-            <a
-              href="tel:240-350-4199"
-              style="
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #007bff;
-                text-decoration: none;
-              "
+            <h2
+              id="cta-heading"
+              style="font-size: 2rem; color: #333; margin-bottom: 20px"
             >
-              📞 240-350-4199
-            </a>
-            <a
-              href="mailto:mdelk96@gmail.com"
-              style="
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #007bff;
-                text-decoration: none;
-              "
-            >
-              ✉️ mdelk96@gmail.com
-            </a>
-          </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="links">
-            <p>
-              Built with much love on
-              <a href="https://glitch.com" target="_blank">Glitch</a>
+              Let’s Work Together
+            </h2>
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px">
+              Ready to make your website accessible? Let’s build a web that
+              works for everyone.
             </p>
-          </div>
-        </footer>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+              "
+            >
+              <a
+                href="tel:240-350-4199"
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  color: #007bff;
+                  text-decoration: none;
+                "
+              >
+                📞 240-350-4199
+              </a>
+              <a
+                href="mailto:mdelk96@gmail.com"
+                style="
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  color: #007bff;
+                  text-decoration: none;
+                "
+              >
+                ✉️ mdelk96@gmail.com
+              </a>
+            </div>
+          </section>
+
+          <!-- Footer -->
+          <footer class="footer">
+            <div class="links">
+              <p>
+                Built with much love on
+                <a href="https://glitch.com" target="_blank">Glitch</a>
+              </p>
+            </div>
+          </footer>
+        </section>
       </div>
     </div>
   </body>

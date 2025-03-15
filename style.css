@@ -146,23 +146,35 @@ body {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
-
-/* Buttons */
+/* Button Styles */
 button {
   background-color: var(--color-primary);
   color: var(--color-bg);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem; /* Ensure sufficient padding */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
   margin: 0.5rem 0;
+  white-space: nowrap; /* Prevent text wrapping */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  overflow: hidden; /* Hide overflowed text */
+  min-width: 120px; /* Set a minimum width to accommodate text */
+  text-align: center; /* Center-align text */
+  box-sizing: border-box; /* Include padding and border in width/height */
 }
 
+/* Hover State */
 button:hover {
   background-color: #e6b800; /* A darker yellow for hover */
+}
+
+/* Focus State */
+button:focus {
+  outline: 3px solid var(--color-text-header); /* Clear focus indicator */
+  outline-offset: 2px;
 }
 
 /* Visually hidden utility class (for screen readers) */
@@ -258,4 +270,24 @@ svg.defs-only {
 
 #fallback-message.visible {
   display: block; /* Visible when needed */
+}
+
+/* Keyframe Animations */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

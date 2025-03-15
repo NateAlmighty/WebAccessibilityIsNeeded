@@ -1,206 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://glitch.com/favicon.ico" />
-  <title>Accessibility is a Requirement</title>
-  <link rel="stylesheet" href="/style.css" />
-  <script src="/script.js" defer></script>
-</head>
-<body>
-  <svg class="defs-only">
-    <filter id="protanopia">
-      <fecolormatrix type="matrix" values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-    <filter id="deuteranopia">
-      <fecolormatrix type="matrix" values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-    <filter id="tritanopia">
-      <fecolormatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-  </svg>
-  <div class="wrapper">
-    <div class="content" role="main">
-      <!-- Portfolio Title -->
-      <h1 class="title">Accessibility is a Requirement</h1>
-      <!-- Introduction -->
-      <section aria-labelledby="introduction-heading">
-        <h2 id="introduction-heading" class="visually-hidden">Introduction</h2>
-        <p>
-          Explore the differences between accessible and inaccessible web design. Use the examples below to experience the challenges faced by users with disabilities.
-        </p>
-      </section>
-
-      <!-- Focus Management -->
-      <section aria-labelledby="focus-management-heading">
-        <h2 id="focus-management-heading">Focus Management: Accessible vs. Inaccessible</h2>
-        <p>
-          Proper focus management ensures users can navigate your website effectively with a keyboard. This includes logical focus order, visible focus indicators, and keyboard operability.
-        </p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Focus Management</h3>
-          <p>This navigation has a logical tab order, clear focus outlines, and is fully operable via keyboard.</p>
-          <nav aria-label="Accessible Navigation Demo">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <button style="outline: 3px solid blue;">Button with Focus Indicator</button>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Focus Management</h3>
-          <p>This navigation disrupts the logical tab order, lacks focus indicators, and uses non-focusable elements.</p>
-          <div class="fake-nav" role="navigation" aria-label="Inaccessible Navigation Demo">
-            <span onclick="alert('Home clicked')">Home</span>
-            <span onclick="alert('About clicked')">About</span>
-            <span onclick="alert('Services clicked')">Services</span>
-            <span onclick="alert('Contact clicked')">Contact</span>
-          </div>
-          <button style="outline: none;">Button Without Focus Indicator</button>
-        </div>
-      </section>
-
-      <!-- Pointer Cancellation and Target Size -->
-      <section aria-labelledby="pointer-interactions-heading">
-        <h2 id="pointer-interactions-heading">Pointer Interactions: Accessible vs. Inaccessible</h2>
-        <p>
-          Pointer interactions should allow users to cancel actions and ensure targets are large enough to be easily activated.
-        </p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Pointer Cancellation and Target Size</h3>
-          <p>This button allows users to cancel an action by moving the pointer away before releasing it, and the target size is at least 44x44 pixels.</p>
-          <button style="width: 44px; height: 44px;" onclick="cancelableAction()">Click Me</button>
-          <p><strong>Try it:</strong> Click and hold the button, then move the pointer away before releasing. The action will not trigger.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Pointer Cancellation and Target Size</h3>
-          <p>This button triggers an action immediately on press, does not allow cancellation, and has a small target size.</p>
-          <button style="width: 20px; height: 20px;" onclick="alert('Action triggered')">Click Me</button>
-          <p><strong>Try it:</strong> Click and hold the button. Notice that the action triggers immediately and cannot be canceled.</p>
-        </div>
-      </section>
-
-      <!-- Concurrent Input Mechanisms -->
-      <section aria-labelledby="input-mechanisms-heading">
-        <h2 id="input-mechanisms-heading">Concurrent Input Mechanisms: Accessible vs. Inaccessible</h2>
-        <p>
-          Content should support multiple input methods, such as keyboard, mouse, and touch.
-        </p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Concurrent Input Mechanisms</h3>
-          <p>This slider works with both keyboard and touch inputs.</p>
-          <input type="range" min="0" max="100" value="50" oninput="updateSliderValue(this.value)">
-          <p>Slider Value: <span id="slider-value">50</span></p>
-          <p><strong>Try it:</strong> Use the arrow keys or drag the slider to adjust the value.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Input Mechanisms</h3>
-          <p>This slider only works with touch input and is not operable via keyboard.</p>
-          <div style="width: 200px; height: 20px; background-color: #ccc;">
-            <div style="width: 50%; height: 100%; background-color: #000;"></div>
-          </div>
-          <p><strong>Try it:</strong> Attempt to use the keyboard to interact with the slider. Notice it does not work.</p>
-        </div>
-      </section>
-
-      <!-- Animation from Interactions -->
-      <section aria-labelledby="animation-from-interactions-heading">
-        <h2 id="animation-from-interactions-heading">Animation from Interactions: Accessible vs. Inaccessible</h2>
-        <p>
-          Animations triggered by user interactions should either not occur or be easily disabled.
-        </p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Animation Control</h3>
-          <p>This animation can be toggled on and off by the user.</p>
-          <div id="toggle-animation-container">
-            <div id="animated-box" style="width: 100px; height: 100px; background-color: blue; animation: bounce 2s infinite;"></div>
-            <button onclick="toggleAnimation()">Disable Animation</button>
-          </div>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Animation</h3>
-          <p>This animation occurs automatically upon interaction and cannot be disabled.</p>
-          <div style="width: 100px; height: 100px; background-color: red; animation: spin 2s infinite;"></div>
-        </div>
-      </section>
-
-      <!-- Visual Design -->
-      <section aria-labelledby="visual-design-heading">
-        <h2 id="visual-design-heading">Visual Design: Accessible vs. Inaccessible</h2>
-        <p>
-          Sufficient color contrast, text alternatives, and reflow ensure content is perceivable for all users.
-        </p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Visual Design</h3>
-          <p>This example provides sufficient contrast, descriptive alt text, and zoom-friendly layout.</p>
-          <img src="https://via.placeholder.com/150" alt="A placeholder image with a gray background and text 'Placeholder'" />
-          <p style="background-color: #ffffff; color: #000000">This text has sufficient contrast.</p>
-          <div style="max-width: 800px; margin: auto; padding: 1rem;">
-            <p>Zoom in on this text and notice how it adjusts without breaking the layout.</p>
-          </div>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Visual Design</h3>
-          <p>This example lacks alt text, has poor contrast, and breaks when zoomed in.</p>
-          <img src="https://via.placeholder.com/150" />
-          <p style="background-color: #cccccc; color: #999999">This text has poor contrast.</p>
-          <div style="width: 1200px;">
-            <p>Zoom in on this text and notice how it overflows or becomes unreadable.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Call to Action -->
-      <section aria-labelledby="cta-heading">
-        <h2 id="cta-heading">Let’s Work Together</h2>
-        <p>
-          Ready to make your website accessible? Let’s build a web that works for everyone.
-        </p>
-        <button id="contact-button" aria-label="Contact me to get started">Contact Me</button>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="links">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>Accessibility is a Requirement</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <svg class="defs-only">
+      <filter id="protanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="deuteranopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="tritanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+    </svg>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- Portfolio Title -->
+        <h1 class="title">Accessibility is a Requirement</h1>
+        <!-- Introduction -->
+        <section aria-labelledby="introduction-heading">
+          <h2 id="introduction-heading" class="visually-hidden">
+            Introduction
+          </h2>
           <p>
-            Built with much love on
-            <a href="https://glitch.com" target="_blank">Glitch</a>
+            Explore the differences between accessible and inaccessible web
+            design. Use the examples below to experience the challenges faced by
+            users with disabilities.
           </p>
-        </div>
-      </footer>
+        </section>
+
+        <!-- Focus Management -->
+        <section aria-labelledby="focus-management-heading">
+          <h2 id="focus-management-heading">
+            Focus Management: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Proper focus management ensures users can navigate your website
+            effectively with a keyboard. This includes logical focus order,
+            visible focus indicators, and keyboard operability.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Focus Management</h3>
+            <p>
+              This navigation has a logical tab order, clear focus outlines, and
+              is fully operable via keyboard.
+            </p>
+            <nav aria-label="Accessible Navigation Demo">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <button style="outline: 3px solid blue">
+              Button with Focus Indicator
+            </button>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Focus Management</h3>
+            <p>
+              This navigation disrupts the logical tab order, lacks focus
+              indicators, and uses non-focusable elements.
+            </p>
+            <div
+              class="fake-nav"
+              role="navigation"
+              aria-label="Inaccessible Navigation Demo"
+            >
+              <span onclick="alert('Home clicked')">Home</span>
+              <span onclick="alert('About clicked')">About</span>
+              <span onclick="alert('Services clicked')">Services</span>
+              <span onclick="alert('Contact clicked')">Contact</span>
+            </div>
+            <button style="outline: none">
+              Button Without Focus Indicator
+            </button>
+          </div>
+        </section>
+
+        <!-- Pointer Cancellation and Target Size -->
+        <section aria-labelledby="pointer-interactions-heading">
+          <h2 id="pointer-interactions-heading">
+            Pointer Interactions: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Pointer interactions should allow users to cancel actions and ensure
+            targets are large enough to be easily activated.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Pointer Cancellation and Target Size</h3>
+            <p>
+              This button allows users to cancel an action by moving the pointer
+              away before releasing it, and the target size is at least 44x44
+              pixels.
+            </p>
+            <button
+              style="width: 44px; height: 44px"
+              onclick="cancelableAction()"
+            >
+              Click Me
+            </button>
+            <p>
+              <strong>Try it:</strong> Click and hold the button, then move the
+              pointer away before releasing. The action will not trigger.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Pointer Cancellation and Target Size</h3>
+            <p>
+              This button triggers an action immediately on press, does not
+              allow cancellation, and has a small target size.
+            </p>
+            <button
+              style="width: 20px; height: 20px"
+              onclick="alert('Action triggered')"
+            >
+              Click Me
+            </button>
+            <p>
+              <strong>Try it:</strong> Click and hold the button. Notice that
+              the action triggers immediately and cannot be canceled.
+            </p>
+          </div>
+        </section>
+
+        <!-- Concurrent Input Mechanisms -->
+        <section aria-labelledby="input-mechanisms-heading">
+          <h2 id="input-mechanisms-heading">
+            Concurrent Input Mechanisms: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Content should support multiple input methods, such as keyboard,
+            mouse, and touch.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Concurrent Input Mechanisms</h3>
+            <p>This slider works with both keyboard and touch inputs.</p>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              oninput="updateSliderValue(this.value)"
+            />
+            <p>Slider Value: <span id="slider-value">50</span></p>
+            <p>
+              <strong>Try it:</strong> Use the arrow keys or drag the slider to
+              adjust the value.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Input Mechanisms</h3>
+            <p>
+              This slider only works with touch input and is not operable via
+              keyboard.
+            </p>
+            <div style="width: 200px; height: 20px; background-color: #ccc">
+              <div
+                style="width: 50%; height: 100%; background-color: #000"
+              ></div>
+            </div>
+            <p>
+              <strong>Try it:</strong> Attempt to use the keyboard to interact
+              with the slider. Notice it does not work.
+            </p>
+          </div>
+        </section>
+
+        <!-- Animation from Interactions -->
+        <section aria-labelledby="animation-from-interactions-heading">
+          <h2 id="animation-from-interactions-heading">
+            Animation from Interactions: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Animations triggered by user interactions should either not occur or
+            be easily disabled.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Animation Control</h3>
+            <p>This animation can be toggled on and off by the user.</p>
+            <div id="toggle-animation-container">
+              <div
+                id="animated-box"
+                style="
+                  width: 100px;
+                  height: 100px;
+                  background-color: blue;
+                  animation: bounce 2s infinite;
+                "
+              ></div>
+              <button onclick="toggleAnimation()">Disable Animation</button>
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Animation</h3>
+            <p>
+              This animation occurs automatically upon interaction and cannot be
+              disabled.
+            </p>
+            <div
+              style="
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                animation: spin 2s infinite;
+              "
+            ></div>
+          </div>
+        </section>
+
+        <!-- Visual Design -->
+        <section aria-labelledby="visual-design-heading">
+          <h2 id="visual-design-heading">
+            Visual Design: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Sufficient color contrast, text alternatives, and reflow ensure
+            content is perceivable for all users.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Visual Design</h3>
+            <p>
+              This example provides sufficient contrast, descriptive alt text,
+              and zoom-friendly layout.
+            </p>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="A placeholder image with a gray background and text 'Placeholder'"
+            />
+            <p style="background-color: #ffffff; color: #000000">
+              This text has sufficient contrast.
+            </p>
+            <div style="max-width: 800px; margin: auto; padding: 1rem">
+              <p>
+                Zoom in on this text and notice how it adjusts without breaking
+                the layout.
+              </p>
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Visual Design</h3>
+            <p>
+              This example lacks alt text, has poor contrast, and breaks when
+              zoomed in.
+            </p>
+            <img src="https://via.placeholder.com/150" />
+            <p style="background-color: #cccccc; color: #999999">
+              This text has poor contrast.
+            </p>
+            <div style="width: 1200px">
+              <p>
+                Zoom in on this text and notice how it overflows or becomes
+                unreadable.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section aria-labelledby="cta-heading">
+          <h2 id="cta-heading">Let’s Work Together</h2>
+          <p>
+            Ready to make your website accessible? Let’s build a web that works
+            for everyone.
+          </p>
+          <button id="contact-button" aria-label="Contact me to get started">
+            Contact Me
+          </button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="links">
+            <p>
+              Built with much love on
+              <a href="https://glitch.com" target="_blank">Glitch</a>
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
-  </div>
-  <style>
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-  </style>
-  <script>
-    function toggleAnimation() {
-      const box = document.getElementById('animated-box');
-      if (box.style.animation) {
-        box.style.animation = '';
-      } else {
-        box.style.animation = 'bounce 2s infinite';
-      }
-    }
-
-    function cancelableAction() {
-      alert('Action triggered!');
-    }
-
-    function updateSliderValue(value) {
-      document.getElementById('slider-value').textContent = value;
-    }
-  </script>
-</body>
+  </body>
 </html>

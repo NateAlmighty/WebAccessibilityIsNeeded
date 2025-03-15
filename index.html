@@ -243,28 +243,18 @@
           </button>
         </section>
 
-        <!-- Audio and Video Accessibility -->
+        <!-- Video Accessibility -->
         <section aria-labelledby="audio-video-heading">
-          <h2 id="audio-video-heading">
-            Audio and Video: Accessible vs. Inaccessible
-          </h2>
+          <h2 id="audio-video-heading">Videos: Accessible vs. Inaccessible</h2>
           <p>
-            Autoplaying media should be controllable, and videos should include
-            captions or transcripts.
+            Videos should include captions or transcripts to ensure
+            accessibility.
           </p>
           <div class="demo accessible-demo">
-            <h3>Accessible Audio and Video</h3>
+            <h3>Accessible Video</h3>
             <p>
-              This audio player allows users to pause playback, and the video
-              includes captions.
+              This video includes captions and allows users to control playback.
             </p>
-            <audio controls>
-              <source
-                src="https://cdn.glitch.global/18eeb65c-108d-4f16-8038-177e40957e6a/accessible_audio.mp3?v=1742071790230"
-                type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
             <video controls width="320">
               <source
                 src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/accessible_video.mp4?v=1742070950830"
@@ -274,18 +264,11 @@
             </video>
           </div>
           <div class="demo inaccessible-demo">
-            <h3>Inaccessible Audio and Video</h3>
+            <h3>Inaccessible Video</h3>
             <p>
-              This audio starts playing automatically without controls, and the
-              video lacks captions.
+              This video lacks captions, making it inaccessible to users who
+              rely on them.
             </p>
-            <audio autoplay>
-              <source
-                src="https://cdn.glitch.global/18eeb65c-108d-4f16-8038-177e40957e6a/inaccessible_audio.mp3?v=1742071785313"
-                type="audio/mpeg"
-              />
-              Your browser does not support the audio element.
-            </audio>
             <video controls width="320">
               <source
                 src="https://cdn.glitch.me/18eeb65c-108d-4f16-8038-177e40957e6a/inaccessible_video.mp4?v=1742071407990"

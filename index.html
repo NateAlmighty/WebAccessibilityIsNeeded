@@ -21,37 +21,91 @@
         <!-- Portfolio Title -->
         <h1 class="title">Accessibility is a Requirement</h1>
 
-        <!-- Description Section -->
-        <section aria-labelledby="description-heading">
-          <h2 id="description-heading" class="visually-hidden">Description</h2>
+        <!-- Introduction -->
+        <section aria-labelledby="introduction-heading">
+          <h2 id="introduction-heading" class="visually-hidden">Introduction</h2>
           <p>
-            As someone who is legally blind without my glasses and used to rely
-            on screen readers to navigate the digital world, I know firsthand
-            how critical accessibility is. The web should be a place where
-            everyone—regardless of ability—can participate fully. Yet, thousands
-            of businesses face lawsuits every year for failing to meet
-            accessibility standards. In 2022 alone, over
-            <strong>3,200 digital accessibility lawsuits</strong> were filed in
-            the U.S., a number that continues to rise.
+            Explore the differences between accessible and inaccessible web
+            design. Use the buttons below to toggle between examples and
+            experience the challenges faced by users with disabilities.
           </p>
+        </section>
+
+        <!-- Accessible vs. Inaccessible Navigation -->
+        <section aria-labelledby="navigation-demo-heading">
+          <h2 id="navigation-demo-heading">Navigation: Accessible vs. Inaccessible</h2>
+
+          <!-- Accessible Navigation Demo -->
+          <div class="demo accessible-demo">
+            <h3>Accessible Navigation</h3>
+            <p>
+              This example demonstrates proper keyboard navigation, semantic
+              HTML, and clear focus states.
+            </p>
+            <nav aria-label="Accessible Navigation Demo">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <p>
+              <strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate
+              through the links. Notice the clear focus outlines.
+            </p>
+          </div>
+
+          <!-- Inaccessible Navigation Demo -->
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Navigation</h3>
+            <p>
+              This example shows common accessibility failures: missing focus
+              states, non-semantic HTML, and poor keyboard navigation.
+            </p>
+            <div class="fake-nav" role="navigation" aria-label="Inaccessible Navigation Demo">
+              <span onclick="alert('Home clicked')">Home</span>
+              <span onclick="alert('About clicked')">About</span>
+              <span onclick="alert('Services clicked')">Services</span>
+              <span onclick="alert('Contact clicked')">Contact</span>
+            </div>
+            <p>
+              <strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate.
+              Notice how the links are not focusable and lack visual feedback.
+            </p>
+          </div>
+        </section>
+
+        <!-- Screen Reader Demo -->
+        <section aria-labelledby="screen-reader-demo-heading">
+          <h2 id="screen-reader-demo-heading">Screen Reader Demo</h2>
           <p>
-            I’m not just an advocate—I’m a developer who makes websites
-            accessible. I specialize in creating inclusive, functional, and
-            compliant digital experiences for the disabled community. Whether
-            it’s ensuring screen reader compatibility, optimizing for keyboard
-            navigation, or designing with colorblind users in mind, I provide
-            tailored solutions that meet both legal requirements and user needs.
+            Experience how a screen reader interacts with accessible and
+            inaccessible content.
           </p>
+          <button id="screen-reader-demo-button" aria-label="Play screen reader demo">
+            Play Screen Reader Demo
+          </button>
+        </section>
+
+        <!-- Colorblindness Demo -->
+        <section aria-labelledby="colorblind-demo-heading">
+          <h2 id="colorblind-demo-heading">Colorblindness Demo</h2>
           <p>
-            If you’re ready to make your website accessible and avoid costly
-            lawsuits, let’s work together. Accessibility isn’t just the right
-            thing to do—it’s a necessity. And I’m here to help you get it done.
+            See how color choices affect readability for users with colorblindness.
           </p>
+          <button id="colorblind-toggle" aria-pressed="false">
+            Toggle Colorblind View
+          </button>
         </section>
 
         <!-- Call to Action -->
         <section aria-labelledby="cta-heading">
           <h2 id="cta-heading">Let’s Work Together</h2>
+          <p>
+            Ready to make your website accessible? Let’s build a web that works
+            for everyone.
+          </p>
           <button id="contact-button" aria-label="Contact me to get started">
             Contact Me
           </button>

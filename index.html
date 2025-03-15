@@ -113,83 +113,80 @@
             </p>
           </div>
         </section>
-
         <section aria-labelledby="semantic-html-heading">
           <h2 id="semantic-html-heading">
             Semantic HTML: Accessible vs. Inaccessible
           </h2>
           <p>
-            Use the examples below to see how semantic HTML helps screen readers
-            and other tools understand your website's structure.
+            Click the "Hear the Output" buttons below to listen to how a screen
+            reader might interpret each example.
           </p>
+          <!-- Accessible Semantic HTML -->
+          <div class="demo accessible-demo">
+            <h3>Accessible Semantic HTML</h3>
+            <p>
+              This example uses semantic HTML elements like
+              <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and
+              <code>&lt;footer&gt;</code>.
+            </p>
+            <header>
+              <h1>Website Header</h1>
+            </header>
+            <main>
+              <p>This is the main content area.</p>
+            </main>
+            <footer>
+              <p>Website Footer</p>
+            </footer>
+            <button onclick="speakContent('accessible')">
+              Hear the Output
+            </button>
+          </div>
 
-      <section aria-labelledby="semantic-html-heading">
-  <h2 id="semantic-html-heading">
-    Semantic HTML: Accessible vs. Inaccessible
-  </h2>
-  <p>
-    Click the "Hear the Output" buttons below to listen to how a screen reader might interpret each example.
-  </p>
+          <!-- Inaccessible Non-Semantic HTML -->
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Non-Semantic HTML</h3>
+            <p>
+              This example uses generic <code>&lt;div&gt;</code> tags without
+              any meaningful labels.
+            </p>
+            <div>
+              <h1>Website Header</h1>
+            </div>
+            <div>
+              <p>This is the main content area.</p>
+            </div>
+            <div>
+              <p>Website Footer</p>
+            </div>
+            <button onclick="speakContent('inaccessible')">
+              Hear the Output
+            </button>
+          </div>
 
-  <!-- Accessible Semantic HTML -->
-  <div class="demo accessible-demo">
-    <h3>Accessible Semantic HTML</h3>
-    <p>
-      This example uses semantic HTML elements like <code><header></code>, <code><main></code>, and <code><footer></code>.
-    </p>
-    <header>
-      <h1>Website Header</h1>
-    </header>
-    <main>
-      <p>This is the main content area.</p>
-    </main>
-    <footer>
-      <p>Website Footer</p>
-    </footer>
-    <button onclick="speakContent('accessible')">Hear the Output</button>
-  </div>
+          <!-- JavaScript for Text-to-Speech -->
+          <script>
+            function speakContent(type) {
+              // Get the content based on the type (accessible or inaccessible)
+              let content;
+              if (type === "accessible") {
+                content = `
+                Entering header. Website Header. Exiting header.
+                Entering main content. This is the main content area. Exiting main content.
+                Entering footer. Website Footer. Exiting footer.
+              `;
+              } else if (type === "inaccessible") {
+                content = `
+                Website Header. This is the main content area. Website Footer.
+              `;
+              }
 
-  <!-- Inaccessible Non-Semantic HTML -->
-  <div class="demo inaccessible-demo">
-    <h3>Inaccessible Non-Semantic HTML</h3>
-    <p>
-      This example uses generic <code><div></code> tags without any meaningful labels.
-    </p>
-    <div>
-      <h1>Website Header</h1>
-    </div>
-    <div>
-      <p>This is the main content area.</p>
-    </div>
-    <div>
-      <p>Website Footer</p>
-    </div>
-    <button onclick="speakContent('inaccessible')">Hear the Output</button>
-  </div>
-
-  <!-- JavaScript for Text-to-Speech -->
-  <script>
-    function speakContent(type) {
-      // Get the content based on the type (accessible or inaccessible)
-      let content;
-      if (type === 'accessible') {
-        content = `
-          Entering header. Website Header. Exiting header.
-          Entering main content. This is the main content area. Exiting main content.
-          Entering footer. Website Footer. Exiting footer.
-        `;
-      } else if (type === 'inaccessible') {
-        content = `
-          Website Header. This is the main content area. Website Footer.
-        `;
-      }
-
-      // Use the SpeechSynthesis API to read the content aloud
-      const utterance = new SpeechSynthesisUtterance(content);
-      speechSynthesis.speak(utterance);
-    }
-  </script>
-</section>
+              // Use the SpeechSynthesis API to read the content aloud
+              const utterance = new SpeechSynthesisUtterance(content);
+              speechSynthesis.speak(utterance);
+            }
+          </script>
+        </section>
         <!-- Text Alternatives Example -->
         <section aria-labelledby="text-alternatives-heading">
           <h2 id="text-alternatives-heading">
@@ -280,14 +277,16 @@
           </button>
         </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="links">
-        <p>
-          Built with much love on
-          <a href="https://glitch.com" target="_blank">Glitch</a>
-        </p>
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="links">
+            <p>
+              Built with much love on
+              <a href="https://glitch.com" target="_blank">Glitch</a>
+            </p>
+          </div>
+        </footer>
       </div>
-    </footer>
+    </div>
   </body>
 </html>

@@ -236,7 +236,7 @@ button:focus {
   background-color: var(--color-problematic-brown); /* Problematic brown */
 }
 
-/* Colorblind Toggle */
+/* Base Styles */
 .colorblind-view {
   filter: grayscale(100%);
 }
@@ -253,6 +253,19 @@ button:focus {
 }
 
 /* SVG Filters for Colorblindness Simulation */
+.protanopia-view {
+  filter: url(#protanopia);
+}
+
+.deuteranopia-view {
+  filter: url(#deuteranopia);
+}
+
+.tritanopia-view {
+  filter: url(#tritanopia);
+}
+
+/* Hide SVG element */
 svg.defs-only {
   position: absolute;
   width: 0;

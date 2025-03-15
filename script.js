@@ -7,15 +7,30 @@ console.log("Accessibility Portfolio Loaded");
 
 // ----- Accessibility Features -----
 
-// Colorblind Toggle
+// Colorblind Toggle Logic
 const colorblindToggle = document.getElementById("colorblind-toggle");
+const modes = ["normal", "protanopia-view", "deuteranopia-view", "tritanopia-view"];
+let currentModeIndex = 0;
+
 if (colorblindToggle) {
   colorblindToggle.onclick = function () {
-    const isColorblind = document.body.classList.toggle("colorblind-view");
+    // Remove the current mode
+    document.body.classList.remove(modes[currentModeIndex]);
+
+    // Move to the next mode
+    currentModeIndex = (currentModeIndex + 1) % modes.length;
+
+    // Apply the new mode
+    if (modes[currentModeIndex] !== "normal") {
+      document.body.classList.add(modes[currentModeIndex]);
+    }
+
+    // Update the button text and state
+    const isColorblind = modes[currentModeIndex] !== "normal";
     colorblindToggle.setAttribute("aria-pressed", isColorblind);
     colorblindToggle.textContent = isColorblind
-      ? "Toggle Normal View"
-      : "Toggle Colorblind View";
+      ? `Toggle ${modes[currentModeIndex].replace("-view", "")} View`
+      : "Toggle Normal View";
   };
 }
 

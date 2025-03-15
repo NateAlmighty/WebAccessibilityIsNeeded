@@ -229,20 +229,43 @@
             ></div>
           </div>
         </section>
+        <section>
+                <!-- Colorblind Toggle Button -->
+        <button id="colorblind-toggle" aria-pressed="false">Toggle Normal View</button>
 
-        <!-- Colorblindness Toggle -->
-        <section aria-labelledby="colorblind-toggle-heading">
-          <h2 id="colorblind-toggle-heading">Colorblindness Simulation</h2>
-          <p>
-            Use the toggle below to simulate colorblindness and see how your
-            design appears to users with different types of color vision
-            deficiencies.
-          </p>
-          <button id="colorblind-toggle" onclick="toggleColorblindMode()">
-            Toggle Colorblind View
-          </button>
+        <!-- SVG Filters for Colorblindness Simulation -->
+        <svg class="defs-only" xmlns="http://www.w3.org/2000/svg">
+          <!-- Protanopia Filter -->
+          <filter id="protanopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.567 0.433 0 0 0
+                      0.558 0.442 0 0 0
+                      0 0.242 0.758 0 0
+                      0 0 0 1 0" />
+          </filter>
+
+          <!-- Deuteranopia Filter -->
+          <filter id="deuteranopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.625 0.375 0 0 0
+                      0.7 0.3 0 0 0
+                      0 0.3 0.7 0 0
+                      0 0 0 1 0" />
+          </filter>
+
+          <!-- Tritanopia Filter -->
+          <filter id="tritanopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.95 0.05 0 0 0
+                      0 0.433 0.567 0 0
+                      0 0.475 0.525 0 0
+                      0 0 0 1 0" />
+          </filter>
+        </svg>
         </section>
-
         <!-- Video Accessibility -->
         <section aria-labelledby="audio-video-heading">
           <h2 id="audio-video-heading">Videos: Accessible vs. Inaccessible</h2>
@@ -328,15 +351,57 @@
         </section>
 
         <!-- Call to Action -->
-        <section aria-labelledby="cta-heading">
-          <h2 id="cta-heading">Let’s Work Together</h2>
-          <p>
+        <section
+          aria-labelledby="cta-heading"
+          style="
+            text-align: center;
+            padding: 40px;
+            background-color: #e8e8e8;
+            border-radius: 10px;
+            boxshadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h2
+            id="cta-heading"
+            style="font-size: 2rem; color: #333; margin-bottom: 20px"
+          >
+            Let’s Work Together
+          </h2>
+          <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px">
             Ready to make your website accessible? Let’s build a web that works
             for everyone.
           </p>
-          <button id="contact-button" aria-label="Contact me to get started">
-            Contact Me
-          </button>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 15px;
+            "
+          >
+            <a
+              href="tel:240-350-4199"
+              style="
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #007bff;
+                text-decoration: none;
+              "
+            >
+              📞 240-350-4199
+            </a>
+            <a
+              href="mailto:mdelk96@gmail.com"
+              style="
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #007bff;
+                text-decoration: none;
+              "
+            >
+              ✉️ mdelk96@gmail.com
+            </a>
+          </div>
         </section>
 
         <!-- Footer -->

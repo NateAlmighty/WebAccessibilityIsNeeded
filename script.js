@@ -7,21 +7,6 @@ console.log("Accessibility Portfolio Loaded");
 
 // ----- Accessibility Features -----
 
-// Screen Reader Demo
-const screenReaderDemoButton = document.getElementById(
-  "screen-reader-demo-button"
-);
-if (screenReaderDemoButton) {
-  screenReaderDemoButton.onclick = function () {
-    // Replace this with the path to your screen reader demo audio file
-    const audio = new Audio("https://cdn.glitch.com/your-audio-file.mp3");
-    audio.play();
-    alert(
-      "Playing screen reader demo. Listen to how a screen reader interacts with this page."
-    );
-  };
-}
-
 // Colorblind Toggle
 const colorblindToggle = document.getElementById("colorblind-toggle");
 if (colorblindToggle) {

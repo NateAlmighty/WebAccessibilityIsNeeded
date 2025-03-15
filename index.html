@@ -1,273 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://glitch.com/favicon.ico" />
-  <title>Accessibility is a Requirement</title>
-  <link rel="stylesheet" href="/style.css" />
-  <script src="/script.js" defer></script>
-</head>
-<body>
-  <svg class="defs-only">
-    <filter id="protanopia">
-      <fecolormatrix type="matrix" values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-    <filter id="deuteranopia">
-      <fecolormatrix type="matrix" values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-    <filter id="tritanopia">
-      <fecolormatrix type="matrix" values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0" />
-    </filter>
-  </svg>
-  <div class="wrapper">
-    <div class="content" role="main">
-      <h1 class="title">Accessibility is a Requirement</h1>
-      <section aria-labelledby="introduction-heading">
-        <h2 id="introduction-heading" class="visually-hidden">Introduction</h2>
-        <p>
-          Explore the differences between accessible and inaccessible web design. Use the buttons below to toggle between examples and experience the challenges faced by users with disabilities.
-        </p>
-      </section>
-      <section aria-labelledby="navigation-demo-heading">
-        <h2 id="navigation-demo-heading">Navigation: Accessible vs. Inaccessible</h2>
-        <div class="demo accessible-demo">
-          <h3>Accessible Navigation</h3>
-          <p>This example demonstrates proper keyboard navigation, semantic HTML, and clear focus states.</p>
-          <nav aria-label="Accessible Navigation Demo">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <p><strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate through the links. Notice the clear focus outlines.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Navigation</h3>
-          <p>This example shows common accessibility failures: missing focus states, non-semantic HTML, and poor keyboard navigation.</p>
-          <div class="fake-nav" role="navigation" aria-label="Inaccessible Navigation Demo">
-            <span onclick="alert('Home clicked')">Home</span>
-            <span onclick="alert('About clicked')">About</span>
-            <span onclick="alert('Services clicked')">Services</span>
-            <span onclick="alert('Contact clicked')">Contact</span>
-          </div>
-          <p><strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate. Notice how the links are not focusable and lack visual feedback.</p>
-        </div>
-      </section>
-      <section aria-labelledby="semantic-html-heading">
-        <h2 id="semantic-html-heading">Semantic HTML: Accessible vs. Inaccessible</h2>
-        <p>Click the "Hear the Output" buttons below to listen to how a screen reader might interpret each example.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Semantic HTML</h3>
-          <p>This example uses semantic HTML elements like <code><header></code>, <code><main></code>, and <code><footer></code>.</p>
-          <header>
-            <h1>Website Header</h1>
-          </header>
-          <main>
-            <p>This is the main content area.</p>
-          </main>
-          <footer>
-            <p>Website Footer</p>
-          </footer>
-          <button onclick="speakContent('accessible')">Hear the Output</button>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Non-Semantic HTML</h3>
-          <p>This example uses generic <code><div></code> tags without any meaningful labels.</p>
-          <div>
-            <h1>Website Header</h1>
-          </div>
-          <div>
-            <p>This is the main content area.</p>
-          </div>
-          <div>
-            <p>Website Footer</p>
-          </div>
-          <button onclick="speakContent('inaccessible')">Hear the Output</button>
-        </div>
-        <p id="fallback-message" class="hidden">
-          Your browser does not support text-to-speech. Please try this example in a modern browser like Chrome, Edge, or Safari.
-        </p>
-      </section>
-      <section aria-labelledby="text-alternatives-heading">
-        <h2 id="text-alternatives-heading">Text Alternatives: Accessible vs. Inaccessible</h2>
-        <p>Providing descriptive <code>alt</code> attributes ensures images are accessible to users with visual impairments.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Image with Alt Text</h3>
-          <p>This image has a descriptive <code>alt</code> attribute.</p>
-          <img src="https://via.placeholder.com/150" alt="A placeholder image with a gray background and text 'Placeholder'" />
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Image Without Alt Text</h3>
-          <p>This image lacks an <code>alt</code> attribute.</p>
-          <img src="https://via.placeholder.com/150" />
-        </div>
-      </section>
-      <section aria-labelledby="color-contrast-heading">
-        <h2 id="color-contrast-heading">Color Contrast: Accessible vs. Inaccessible</h2>
-        <p>Sufficient color contrast ensures text is readable for users with low vision.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Color Contrast</h3>
-          <p style="background-color: #ffffff; color: #000000">This text has sufficient contrast.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Color Contrast</h3>
-          <p style="background-color: #cccccc; color: #999999">This text has poor contrast.</p>
-        </div>
-      </section>
-      <section aria-labelledby="error-handling-heading">
-        <h2 id="error-handling-heading">Error Handling: Accessible vs. Inaccessible</h2>
-        <p>Clear error messages help users understand and fix issues.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Error Handling</h3>
-          <form>
-            <label for="email-accessible">Email:</label>
-            <input type="email" id="email-accessible" required />
-            <button type="submit">Submit</button>
-          </form>
-          <p><strong>Try it:</strong> Leave the email field empty and submit the form. Notice the clear error message.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Error Handling</h3>
-          <form>
-            <input type="email" id="email-inaccessible" required />
-            <button type="submit">Submit</button>
-          </form>
-          <p><strong>Try it:</strong> Leave the email field empty and submit the form. Notice the lack of guidance.</p>
-        </div>
-      </section>
-      <section aria-labelledby="keyboard-accessibility-heading">
-        <h2 id="keyboard-accessibility-heading">Keyboard Accessibility: Accessible vs. Inaccessible</h2>
-        <p>Try navigating these examples using only your keyboard. Notice how accessible elements are easy to interact with, while inaccessible ones are impossible to navigate.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Keyboard Navigation</h3>
-          <p>This example uses focusable elements like buttons and links.</p>
-          <nav>
-            <ul>
-              <li><a href="#home" tabindex="0">Home</a></li>
-              <li><a href="#about" tabindex="0">About</a></li>
-              <li><a href="#services" tabindex="0">Services</a></li>
-            </ul>
-          </nav>
-          <p><strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate through the links. Notice the clear focus outlines.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Keyboard Navigation</h3>
-          <p>This example uses non-focusable elements like <code><span></code>.</p>
-          <div>
-            <span>Home</span>
-            <span>About</span>
-            <span>Services</span>
-          </div>
-          <p><strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate. Notice how you cannot interact with these elements.</p>
-        </div>
-      </section>
-      <section aria-labelledby="aria-roles-heading">
-        <h2 id="aria-roles-heading">ARIA Roles: Accessible vs. Inaccessible</h2>
-        <p>ARIA roles provide context for assistive technologies. Compare these examples to see how ARIA improves accessibility.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible ARIA Roles</h3>
-          <p>This example uses ARIA roles to describe custom widgets.</p>
-          <button role="button" aria-label="Click me">Accessible Button</button>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Custom Widget</h3>
-          <p>This example lacks ARIA roles, making it unclear to screen readers.</p>
-          <div>Click me</div>
-        </div>
-      </section>
-      <section aria-labelledby="time-based-media-heading">
-        <h2 id="time-based-media-heading">Time-Based Media: Accessible vs. Inaccessible</h2>
-        <p>Videos and audio must have alternatives like captions or transcripts. Compare these examples to understand why this is important.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Video with Captions</h3>
-          <video controls width="320">
-            <source src="example.mp4" type="video/mp4">
-            <track kind="captions" src="captions.vtt" srclang="en" label="English">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Video Without Captions</h3>
-          <video controls width="320">
-            <source src="example.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
-      <section aria-labelledby="resizable-text-heading">
-        <h2 id="resizable-text-heading">Resizable Text: Accessible vs. Inaccessible</h2>
-        <p>Text should be resizable without breaking the layout. Zoom in on these examples to see the difference.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Resizable Text</h3>
-          <p style="font-size: 1rem;">This text uses relative units and remains readable when resized.</p>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Fixed Text</h3>
-          <p style="font-size: 16px;">This text uses fixed units and may break when resized.</p>
-        </div>
-      </section>
-      <section aria-labelledby="focus-indicators-heading">
-        <h2 id="focus-indicators-heading">Focus Indicators: Accessible vs. Inaccessible</h2>
-        <p>Clear focus indicators help users navigate with a keyboard. Compare these examples to see the difference.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Focus Indicators</h3>
-          <button style="outline: 3px solid blue;">Button with Focus Indicator</button>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Hidden Focus</h3>
-          <button style="outline: none;">Button Without Focus Indicator</button>
-        </div>
-      </section>
-      <section aria-labelledby="skip-links-heading">
-        <h2 id="skip-links-heading">Skip Links: Accessible vs. Inaccessible</h2>
-        <p>Skip links allow users to bypass repetitive navigation. Try tabbing through these examples to see the difference.</p>
-        <div class="demo accessible-demo">
-          <h3>Accessible Skip Link</h3>
-          <a href="#main-content" class="skip-link">Skip to main content</a>
-          <nav>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-            </ul>
-          </nav>
-          <main id="main-content">
-            <p>Main content area.</p>
-          </main>
-        </div>
-        <div class="demo inaccessible-demo">
-          <h3>Inaccessible Without Skip Link</h3>
-          <nav>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-            </ul>
-          </nav>
-          <main id="main-content">
-            <p>Main content area.</p>
-          </main>
-        </div>
-      </section>
-      <section aria-labelledby="cta-heading">
-        <h2 id="cta-heading">Let’s Work Together</h2>
-        <p>
-          Ready to make your website accessible? Let’s build a web that works for everyone.
-        </p>
-        <button id="contact-button" aria-label="Contact me to get started">Contact Me</button>
-      </section>
-      <footer class="footer">
-        <div class="links">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>Accessibility is a Requirement</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <svg class="defs-only">
+      <filter id="protanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="deuteranopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="tritanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"
+        />
+      </filter>
+    </svg>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- Portfolio Title -->
+        <h1 class="title">Accessibility is a Requirement</h1>
+        <!-- Introduction -->
+        <section aria-labelledby="introduction-heading">
+          <h2 id="introduction-heading" class="visually-hidden">
+            Introduction
+          </h2>
           <p>
-            Built with much love on
-            <a href="https://glitch.com" target="_blank">Glitch</a>
+            Explore the differences between accessible and inaccessible web
+            design. Use the buttons below to toggle between examples and
+            experience the challenges faced by users with disabilities.
           </p>
-        </div>
-      </footer>
+        </section>
+
+        <!-- Navigation: Accessible vs. Inaccessible -->
+        <section aria-labelledby="navigation-demo-heading">
+          <h2 id="navigation-demo-heading">
+            Navigation: Accessible vs. Inaccessible
+          </h2>
+          <div class="demo accessible-demo">
+            <h3>Accessible Navigation</h3>
+            <p>
+              This example demonstrates proper keyboard navigation, semantic
+              HTML, and clear focus states.
+            </p>
+            <nav aria-label="Accessible Navigation Demo">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <p>
+              <strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate
+              through the links. Notice the clear focus outlines.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Navigation</h3>
+            <p>
+              This example shows common accessibility failures: missing focus
+              states, non-semantic HTML, and poor keyboard navigation.
+            </p>
+            <div
+              class="fake-nav"
+              role="navigation"
+              aria-label="Inaccessible Navigation Demo"
+            >
+              <span onclick="alert('Home clicked')">Home</span>
+              <span onclick="alert('About clicked')">About</span>
+              <span onclick="alert('Services clicked')">Services</span>
+              <span onclick="alert('Contact clicked')">Contact</span>
+            </div>
+            <p>
+              <strong>Try it:</strong> Use the <kbd>Tab</kbd> key to navigate.
+              Notice how the links are not focusable and lack visual feedback.
+            </p>
+          </div>
+        </section>
+
+        <!-- Semantic HTML: Accessible vs. Inaccessible -->
+        <section aria-labelledby="semantic-html-heading">
+          <h2 id="semantic-html-heading">
+            Semantic HTML: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Click the "Hear the Output" buttons below to listen to how a screen
+            reader might interpret each example.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Semantic HTML</h3>
+            <p>
+              This example uses semantic HTML elements like <code>header</code>,
+              <code>main</code>, and <code>footer</code>.
+            </p>
+            <header>
+              <h1>Website Header</h1>
+            </header>
+            <main>
+              <p>This is the main content area.</p>
+            </main>
+            <footer>
+              <p>Website Footer</p>
+            </footer>
+            <button onclick="speakContent('accessible')">
+              Hear the Output
+            </button>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Non-Semantic HTML</h3>
+            <p>
+              This example uses generic <code>div</code> tags without any
+              meaningful labels.
+            </p>
+            <div>
+              <h1>Website Header</h1>
+            </div>
+            <div>
+              <p>This is the main content area.</p>
+            </div>
+            <div>
+              <p>Website Footer</p>
+            </div>
+            <button onclick="speakContent('inaccessible')">
+              Hear the Output
+            </button>
+          </div>
+          <p id="fallback-message" class="hidden">
+            Your browser does not support text-to-speech. Please try this
+            example in a modern browser like Chrome, Edge, or Safari.
+          </p>
+        </section>
+
+        <!-- Text Alternatives: Accessible vs. Inaccessible -->
+        <section aria-labelledby="text-alternatives-heading">
+          <h2 id="text-alternatives-heading">
+            Text Alternatives: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Providing descriptive <code>alt</code> attributes ensures images are
+            accessible to users with visual impairments.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Image with Alt Text</h3>
+            <p>This image has a descriptive <code>alt</code> attribute.</p>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="A placeholder image with a gray background and text 'Placeholder'"
+            />
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Image Without Alt Text</h3>
+            <p>This image lacks an <code>alt</code> attribute.</p>
+            <img src="https://via.placeholder.com/150" />
+          </div>
+        </section>
+
+        <!-- Color Contrast: Accessible vs. Inaccessible -->
+        <section aria-labelledby="color-contrast-heading">
+          <h2 id="color-contrast-heading">
+            Color Contrast: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Sufficient color contrast ensures text is readable for users with
+            low vision.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Color Contrast</h3>
+            <p style="background-color: #ffffff; color: #000000">
+              This text has sufficient contrast.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Color Contrast</h3>
+            <p style="background-color: #cccccc; color: #999999">
+              This text has poor contrast.
+            </p>
+          </div>
+        </section>
+
+        <!-- Error Handling: Accessible vs. Inaccessible -->
+        <section aria-labelledby="error-handling-heading">
+          <h2 id="error-handling-heading">
+            Error Handling: Accessible vs. Inaccessible
+          </h2>
+          <p>Clear error messages help users understand and fix issues.</p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Error Handling</h3>
+            <form>
+              <label for="email-accessible">Email:</label>
+              <input type="email" id="email-accessible" required />
+              <button type="submit">Submit</button>
+            </form>
+            <p>
+              <strong>Try it:</strong> Leave the email field empty and submit
+              the form. Notice the clear error message.
+            </p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Error Handling</h3>
+            <form>
+              <input type="email" id="email-inaccessible" required />
+              <button type="submit">Submit</button>
+            </form>
+            <p>
+              <strong>Try it:</strong> Leave the email field empty and submit
+              the form. Notice the lack of guidance.
+            </p>
+          </div>
+        </section>
+
+        <!-- Time Limits: Accessible vs. Inaccessible -->
+        <section aria-labelledby="time-limits-heading">
+          <h2 id="time-limits-heading">
+            Time Limits: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Users should be able to manage time-sensitive interactions. Compare
+            these examples to see why time limits matter.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Time Management</h3>
+            <p>This form allows users to extend the time limit.</p>
+            <div>
+              <p>You have 5 minutes to complete this form.</p>
+              <button onclick="extendTime()">Extend Time</button>
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Time Limit</h3>
+            <p>This form abruptly ends after 5 minutes without warning.</p>
+            <div>
+              <p>
+                You have 5 minutes to complete this form. After that, your
+                session will end.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Flashing Content: Accessible vs. Inaccessible -->
+        <section aria-labelledby="flashing-content-heading">
+          <h2 id="flashing-content-heading">
+            Flashing Content: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Content that flashes more than three times per second can trigger
+            seizures for users with photosensitive epilepsy.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Animation</h3>
+            <p>This animation is safe and does not flash excessively.</p>
+            <div class="safe-element">Safe Animation</div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Flashing Content</h3>
+            <p>
+              This content flashes excessively and poses a risk to users with
+              photosensitive epilepsy.
+            </p>
+            <div class="unsafe-element">Flashing Content</div>
+          </div>
+        </section>
+
+        <!-- Consistent Identification: Accessible vs. Inaccessible -->
+        <section aria-labelledby="consistent-identification-heading">
+          <h2 id="consistent-identification-heading">
+            Consistent Identification: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Components with the same functionality should be labeled
+            consistently across the website.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Consistency</h3>
+            <p>All "Submit" buttons use the same label.</p>
+            <button>Submit Form</button>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Inconsistency</h3>
+            <p>Buttons with the same functionality have inconsistent labels.</p>
+            <button>Send Data</button>
+            <button>Complete Submission</button>
+          </div>
+        </section>
+
+        <!-- Reflow: Accessible vs. Inaccessible -->
+        <section aria-labelledby="reflow-heading">
+          <h2 id="reflow-heading">Reflow: Accessible vs. Inaccessible</h2>
+          <p>
+            Content should reflow without loss of information or functionality
+            when zoomed up to 400%.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Reflow</h3>
+            <p>This content remains usable when zoomed in.</p>
+            <div style="max-width: 800px; margin: auto; padding: 1rem">
+              <p>
+                Zoom in on this text and notice how it adjusts without breaking
+                the layout.
+              </p>
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Fixed Layout</h3>
+            <p>This content breaks when zoomed in due to fixed widths.</p>
+            <div style="width: 1200px">
+              <p>
+                Zoom in on this text and notice how it overflows or becomes
+                unreadable.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pointer Gestures: Accessible vs. Inaccessible -->
+        <section aria-labelledby="pointer-gestures-heading">
+          <h2 id="pointer-gestures-heading">
+            Pointer Gestures: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Functionality that relies on complex gestures should also be
+            operable through simpler methods like single taps.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Pointer Gestures</h3>
+            <p>This button works with a single tap or click.</p>
+            <button onclick="alert('Button clicked')">Click Me</button>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Complex Gesture</h3>
+            <p>
+              This feature requires a pinch-to-zoom gesture, which may not be
+              accessible to all users.
+            </p>
+            <div style="width: 200px; height: 200px; background-color: #ccc">
+              <p>Pinch to zoom (not accessible).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Status Messages: Accessible vs. Inaccessible -->
+        <section aria-labelledby="status-messages-heading">
+          <h2 id="status-messages-heading">
+            Status Messages: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Dynamic updates should be announced to assistive technologies
+            without requiring user interaction.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Status Message</h3>
+            <p>This message will be announced by screen readers.</p>
+            <div aria-live="polite">
+              Your form has been successfully submitted.
+            </div>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Silent Update</h3>
+            <p>This update is not announced to screen readers.</p>
+            <div>Your form has been successfully submitted.</div>
+          </div>
+        </section>
+
+        <!-- Audio Control: Accessible vs. Inaccessible -->
+        <section aria-labelledby="audio-control-heading">
+          <h2 id="audio-control-heading">
+            Audio Control: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            If audio plays automatically for more than 3 seconds, users must
+            have a way to pause or stop it.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Audio Control</h3>
+            <p>This audio player allows users to pause or stop playback.</p>
+            <audio controls>
+              <source src="audio.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Autoplaying Audio</h3>
+            <p>This audio starts playing automatically without controls.</p>
+            <audio autoplay>
+              <source src="audio.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </section>
+
+        <!-- Language of Parts: Accessible vs. Inaccessible -->
+        <section aria-labelledby="language-of-parts-heading">
+          <h2 id="language-of-parts-heading">
+            Language of Parts: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Content written in a different language should be identified using
+            the <code>lang</code> attribute.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Language Identification</h3>
+            <p>
+              This example uses the <code>lang</code> attribute to identify a
+              different language.
+            </p>
+            <p lang="es">Hola, mundo.</p>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Missing Language Attribute</h3>
+            <p>
+              This example lacks a <code>lang</code> attribute, making it
+              unclear to screen readers.
+            </p>
+            <p>Hola, mundo.</p>
+          </div>
+        </section>
+
+        <!-- Label in Name: Accessible vs. Inaccessible -->
+        <section aria-labelledby="label-in-name-heading">
+          <h2 id="label-in-name-heading">
+            Label in Name: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            The visible label of an interactive element should match its
+            accessible name.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Matching Label</h3>
+            <p>The visible label matches the <code>aria-label</code>.</p>
+            <button aria-label="Submit Form">Submit Form</button>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Mismatched Label</h3>
+            <p>The visible label does not match the <code>aria-label</code>.</p>
+            <button aria-label="Send Data">Submit Form</button>
+          </div>
+        </section>
+
+        <!-- Focus Order: Accessible vs. Inaccessible -->
+        <section aria-labelledby="focus-order-heading">
+          <h2 id="focus-order-heading">
+            Focus Order: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            The order in which elements receive focus should follow a logical
+            sequence that preserves meaning and operability.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Logical Focus Order</h3>
+            <p>This navigation follows a logical tab order.</p>
+            <nav>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Disrupted Focus Order</h3>
+            <p>This navigation disrupts the logical tab order.</p>
+            <nav>
+              <ul>
+                <li><a href="#contact" tabindex="3">Contact</a></li>
+                <li><a href="#home" tabindex="1">Home</a></li>
+                <li><a href="#about" tabindex="2">About</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+
+        <!-- Accessible Authentication: Accessible vs. Inaccessible -->
+        <section aria-labelledby="accessible-authentication-heading">
+          <h2 id="accessible-authentication-heading">
+            Accessible Authentication: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Cognitive tests like CAPTCHAs should not rely solely on visual or
+            auditory challenges.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Authentication</h3>
+            <p>This form provides an alternative method for authentication.</p>
+            <form>
+              <label for="email-verification"
+                >Enter the code sent to your email:</label
+              >
+              <input type="text" id="email-verification" />
+              <button type="submit">Verify</button>
+            </form>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible CAPTCHA</h3>
+            <p>This CAPTCHA relies solely on visual recognition.</p>
+            <img src="captcha.png" alt="CAPTCHA Image" />
+            <input type="text" placeholder="Enter CAPTCHA" />
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section aria-labelledby="cta-heading">
+          <h2 id="cta-heading">Let’s Work Together</h2>
+          <p>
+            Ready to make your website accessible? Let’s build a web that works
+            for everyone.
+          </p>
+          <button id="contact-button" aria-label="Contact me to get started">
+            Contact Me
+          </button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="links">
+            <p>
+              Built with much love on
+              <a href="https://glitch.com" target="_blank">Glitch</a>
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

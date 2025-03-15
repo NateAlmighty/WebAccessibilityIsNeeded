@@ -9,6 +9,7 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <!-- SVG Filters for Colorblindness Simulation -->
     <svg class="defs-only">
       <filter id="protanopia">
         <fecolormatrix
@@ -29,10 +30,13 @@
         />
       </filter>
     </svg>
+
+    <!-- Main Content -->
     <div class="wrapper">
       <div class="content" role="main">
         <!-- Portfolio Title -->
         <h1 class="title">Accessibility is a Requirement</h1>
+
         <!-- Introduction -->
         <section aria-labelledby="introduction-heading">
           <h2 id="introduction-heading" class="visually-hidden">
@@ -226,6 +230,66 @@
           </div>
         </section>
 
+        <!-- Colorblindness Toggle -->
+        <section aria-labelledby="colorblind-toggle-heading">
+          <h2 id="colorblind-toggle-heading">Colorblindness Simulation</h2>
+          <p>
+            Use the toggle below to simulate colorblindness and see how your
+            design appears to users with different types of color vision
+            deficiencies.
+          </p>
+          <button id="colorblind-toggle" onclick="toggleColorblindMode()">
+            Toggle Colorblind View
+          </button>
+        </section>
+
+        <!-- Audio and Video Accessibility -->
+        <section aria-labelledby="audio-video-heading">
+          <h2 id="audio-video-heading">
+            Audio and Video: Accessible vs. Inaccessible
+          </h2>
+          <p>
+            Autoplaying media should be controllable, and videos should include
+            captions or transcripts.
+          </p>
+          <div class="demo accessible-demo">
+            <h3>Accessible Audio and Video</h3>
+            <p>
+              This audio player allows users to pause playback, and the video
+              includes captions.
+            </p>
+            <audio controls>
+              <source src="audio.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+            <video controls width="320">
+              <source src="example.mp4" type="video/mp4" />
+              <track
+                kind="captions"
+                src="captions.vtt"
+                srclang="en"
+                label="English"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="demo inaccessible-demo">
+            <h3>Inaccessible Audio and Video</h3>
+            <p>
+              This audio starts playing automatically without controls, and the
+              video lacks captions.
+            </p>
+            <audio autoplay>
+              <source src="audio.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+            <video controls width="320">
+              <source src="example.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
         <!-- Visual Design -->
         <section aria-labelledby="visual-design-heading">
           <h2 id="visual-design-heading">
@@ -286,7 +350,7 @@
           </button>
         </section>
 
-        <!-- Footer -->
+        <!-- Footer -->  
         <footer class="footer">
           <div class="links">
             <p>

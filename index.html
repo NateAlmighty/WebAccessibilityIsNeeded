@@ -116,14 +116,19 @@
 
         <!-- Semantic HTML Example -->
         <section aria-labelledby="semantic-html-heading">
-          <h2 id="semantic-html-heading">Semantic HTML: Accessible vs. Inaccessible</h2>
+          <h2 id="semantic-html-heading">
+            Semantic HTML: Accessible vs. Inaccessible
+          </h2>
           <p>
-            Semantic HTML helps screen readers interpret the structure of your site correctly.
+            Semantic HTML helps screen readers interpret the structure of your
+            site correctly.
           </p>
           <div class="demo accessible-demo">
             <h3>Accessible Semantic HTML</h3>
             <p>
-              This example uses semantic HTML elements like <code><header></code>, <code><main></code>, and <code><footer></code>.
+              This example uses semantic HTML elements like
+              <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and
+              <code>&lt;footer&gt;</code>.
             </p>
             <header>
               <h1>Website Header</h1>
@@ -138,7 +143,8 @@
           <div class="demo inaccessible-demo">
             <h3>Inaccessible Non-Semantic HTML</h3>
             <p>
-              This example uses generic <code><div></code> tags without semantic meaning.
+              This example uses generic <code>&lt;div&gt;</code> tags without
+              semantic meaning.
             </p>
             <div>
               <h1>Website Header</h1>
@@ -154,41 +160,46 @@
 
         <!-- Text Alternatives Example -->
         <section aria-labelledby="text-alternatives-heading">
-          <h2 id="text-alternatives-heading">Text Alternatives: Accessible vs. Inaccessible</h2>
+          <h2 id="text-alternatives-heading">
+            Text Alternatives: Accessible vs. Inaccessible
+          </h2>
           <p>
-            Providing descriptive <code>alt</code> attributes ensures images are accessible to users with visual impairments.
+            Providing descriptive <code>alt</code> attributes ensures images are
+            accessible to users with visual impairments.
           </p>
           <div class="demo accessible-demo">
             <h3>Accessible Image with Alt Text</h3>
-            <p>
-              This image has a descriptive <code>alt</code> attribute.
-            </p>
-            <img src="https://via.placeholder.com/150" alt="A placeholder image with a gray background and text 'Placeholder'" />
+            <p>This image has a descriptive <code>alt</code> attribute.</p>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="A placeholder image with a gray background and text 'Placeholder'"
+            />
           </div>
           <div class="demo inaccessible-demo">
             <h3>Inaccessible Image Without Alt Text</h3>
-            <p>
-              This image lacks an <code>alt</code> attribute.
-            </p>
+            <p>This image lacks an <code>alt</code> attribute.</p>
             <img src="https://via.placeholder.com/150" />
           </div>
         </section>
 
         <!-- Color Contrast Example -->
         <section aria-labelledby="color-contrast-heading">
-          <h2 id="color-contrast-heading">Color Contrast: Accessible vs. Inaccessible</h2>
+          <h2 id="color-contrast-heading">
+            Color Contrast: Accessible vs. Inaccessible
+          </h2>
           <p>
-            Sufficient color contrast ensures text is readable for users with low vision.
+            Sufficient color contrast ensures text is readable for users with
+            low vision.
           </p>
           <div class="demo accessible-demo">
             <h3>Accessible Color Contrast</h3>
-            <p style="background-color: #ffffff; color: #000000;">
+            <p style="background-color: #ffffff; color: #000000">
               This text has sufficient contrast.
             </p>
           </div>
           <div class="demo inaccessible-demo">
             <h3>Inaccessible Color Contrast</h3>
-            <p style="background-color: #cccccc; color: #999999;">
+            <p style="background-color: #cccccc; color: #999999">
               This text has poor contrast.
             </p>
           </div>
@@ -196,10 +207,10 @@
 
         <!-- Error Handling Example -->
         <section aria-labelledby="error-handling-heading">
-          <h2 id="error-handling-heading">Error Handling: Accessible vs. Inaccessible</h2>
-          <p>
-            Clear error messages help users understand and fix issues.
-          </p>
+          <h2 id="error-handling-heading">
+            Error Handling: Accessible vs. Inaccessible
+          </h2>
+          <p>Clear error messages help users understand and fix issues.</p>
           <div class="demo accessible-demo">
             <h3>Accessible Error Handling</h3>
             <form>
@@ -208,7 +219,8 @@
               <button type="submit">Submit</button>
             </form>
             <p>
-              <strong>Try it:</strong> Leave the email field empty and submit the form. Notice the clear error message.
+              <strong>Try it:</strong> Leave the email field empty and submit
+              the form. Notice the clear error message.
             </p>
           </div>
           <div class="demo inaccessible-demo">
@@ -218,7 +230,8 @@
               <button type="submit">Submit</button>
             </form>
             <p>
-              <strong>Try it:</strong> Leave the email field empty and submit the form. Notice the lack of guidance.
+              <strong>Try it:</strong> Leave the email field empty and submit
+              the form. Notice the lack of guidance.
             </p>
           </div>
         </section>

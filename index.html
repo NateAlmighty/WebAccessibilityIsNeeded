@@ -230,42 +230,81 @@
           </div>
         </section>
         <section>
-                <!-- Colorblind Toggle Button -->
-        <button id="colorblind-toggle" aria-pressed="false">Toggle Normal View</button>
+          <!-- Colorblind Toggle Button -->
+          <button id="colorblind-toggle" aria-pressed="false">Toggle Default View</button>
 
-        <!-- SVG Filters for Colorblindness Simulation -->
-        <svg class="defs-only" xmlns="http://www.w3.org/2000/svg">
-          <!-- Protanopia Filter -->
-          <filter id="protanopia">
-            <fecolormatrix
-              type="matrix"
-              values="0.567 0.433 0 0 0
-                      0.558 0.442 0 0 0
-                      0 0.242 0.758 0 0
-                      0 0 0 1 0" />
-          </filter>
+          <!-- SVG Filters for Colorblindness Simulation -->
+          <svg class="defs-only" xmlns="http://www.w3.org/2000/svg">
+            <!-- Protanopia Filter -->
+            <filter id="colorblind-protanopia">
+              <feColorMatrix
+                type="matrix"
+                values="0.567 0.433 0 0 0
+                        0.558 0.442 0 0 0
+                        0 0.242 0.758 0 0
+                        0 0 0 1 0" />
+            </filter>
 
-          <!-- Deuteranopia Filter -->
-          <filter id="deuteranopia">
-            <fecolormatrix
-              type="matrix"
-              values="0.625 0.375 0 0 0
-                      0.7 0.3 0 0 0
-                      0 0.3 0.7 0 0
-                      0 0 0 1 0" />
-          </filter>
+            <!-- Deuteranopia Filter -->
+            <filter id="colorblind-deuteranopia">
+              <feColorMatrix
+                type="matrix"
+                values="0.625 0.375 0 0 0
+                        0.7 0.3 0 0 0
+                        0 0.3 0.7 0 0
+                        0 0 0 1 0" />
+            </filter>
 
-          <!-- Tritanopia Filter -->
-          <filter id="tritanopia">
-            <fecolormatrix
-              type="matrix"
-              values="0.95 0.05 0 0 0
-                      0 0.433 0.567 0 0
-                      0 0.475 0.525 0 0
-                      0 0 0 1 0" />
-          </filter>
-        </svg>
+            <!-- Tritanopia Filter -->
+            <filter id="colorblind-tritanopia">
+              <fecolorMatrix
+                type="matrix"
+                values="0.95 0.05 0 0 0
+                        0 0.433 0.567 0 0
+                        0 0.475 0.525 0 0
+                        0 0 0 1 0" />
+            </filter>
+          </svg>
+          <!-- Accessible vs Inaccessible Features Section -->
+        <section id="colorblind-explanation">
+          <h2>Accessible vs Inaccessible Features for Colorblind Users</h2>
+          <div class="demo-container">
+            <div class="demo-item accessible-demo">
+              <h3>Accessible Feature</h3>
+              <p>
+                This text uses high contrast and patterns to ensure readability
+              </p>
+              <div class="example-box">
+                <span style="background-color: black; color: white"
+                  >High Contrast Text</span
+                >
+                <span style="background-color: #ccc; color: black"
+                  >Patterned Background</span
+                >
+              </div>
+            </div>
+            <div class="demo-item inaccessible-demo">
+              <h3>Inaccessible Feature</h3>
+              <p>
+                This text relies only on color, making it difficult for
+                colorblind users to distinguish.
+              </p>
+              <div class="example-box">
+                <span
+                  class="fake-nav"
+                  style="background-color: red; color: darkred"
+                  >Problematic Red</span
+                >
+                <span
+                  class="fake-nav"
+                  style="background-color: green; color: darkgreen"
+                  >Problematic Green</span
+                >
+              </div>
+            </div>
+          </div>
         </section>
+
         <!-- Video Accessibility -->
         <section aria-labelledby="audio-video-heading">
           <h2 id="audio-video-heading">Videos: Accessible vs. Inaccessible</h2>

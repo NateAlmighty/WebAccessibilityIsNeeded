@@ -163,29 +163,15 @@
               Hear the Output
             </button>
           </div>
-
-          <!-- JavaScript for Text-to-Speech -->
-          <script>
-            function speakContent(type) {
-              // Get the content based on the type (accessible or inaccessible)
-              let content;
-              if (type === "accessible") {
-                content = `
-                Entering header. Website Header. Exiting header.
-                Entering main content. This is the main content area. Exiting main content.
-                Entering footer. Website Footer. Exiting footer.
-              `;
-              } else if (type === "inaccessible") {
-                content = `
-                Website Header. This is the main content area. Website Footer.
-              `;
-              }
-
-              // Use the SpeechSynthesis API to read the content aloud
-              const utterance = new SpeechSynthesisUtterance(content);
-              speechSynthesis.speak(utterance);
-            }
-          </script>
+          <!-- Fallback Message -->
+          <p id="fallback-message" class="hidden">
+            Your browser does not support text-to-speech. Please try this
+            example in a modern browser like Chrome, Edge, or Safari.
+          </p>
+        </section>
+        <section>
+          <!-- Link to the external JavaScript file -->
+          <script src="script.js" defer></script>
         </section>
         <!-- Text Alternatives Example -->
         <section aria-labelledby="text-alternatives-heading">

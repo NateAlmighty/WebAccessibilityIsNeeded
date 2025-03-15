@@ -44,3 +44,32 @@ keyboardDemoButtons.forEach((button) => {
     button.style.outline = "none";
   });
 });
+
+// Function to speak content using the SpeechSynthesis API
+function speakContent(type) {
+  // Check if the SpeechSynthesis API is supported
+  if (!("speechSynthesis" in window)) {
+    // Show the fallback message
+    const fallbackMessage = document.getElementById("fallback-message");
+    fallbackMessage.classList.remove("hidden");
+    return;
+  }
+
+  // Get the content based on the type (accessible or inaccessible)
+  let content;
+  if (type === "accessible") {
+    content = `
+      Entering header. Website Header. Exiting header.
+      Entering main content. This is the main content area. Exiting main content.
+      Entering footer. Website Footer. Exiting footer.
+    `;
+  } else if (type === "inaccessible") {
+    content = `
+      Website Header. This is the main content area. Website Footer.
+    `;
+  }
+
+  // Use the SpeechSynthesis API to read the content aloud
+  const utterance = new SpeechSynthesisUtterance(content);
+  speechSynthesis.speak(utterance);
+}

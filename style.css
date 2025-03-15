@@ -4,10 +4,11 @@ START Glitch hello-app default styles
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #69f7be;
-  --color-text-main: #000000;
-  --color-text-header: #2800ff;
-  --color-primary: #ffff00;
+  --color-bg: #1a1a1a; /* Dark background */
+  --color-text-main: #ffffff; /* White text */
+  --color-text-header: #ffcc00; /* Yellow for headers */
+  --color-primary: #ffcc00; /* Yellow for buttons and accents */
+  --color-secondary: #333333; /* Dark gray for secondary elements */
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
@@ -48,7 +49,7 @@ START Glitch hello-app default styles
   padding: 1rem 0 0.75rem 0;
   width: 100%;
   flex-wrap: wrap;
-  border-top: 4px solid #ffffff;
+  border-top: 4px solid var(--color-secondary);
 }
 
 .footer a:hover {
@@ -61,7 +62,7 @@ START Glitch hello-app default styles
   font-style: normal;
   font-weight: normal;
   font-size: 1.1rem;
-  color: #000000;
+  color: var(--color-text-main);
   text-decoration: none;
   border-style: none;
 }
@@ -103,9 +104,9 @@ body {
   max-width: 800px;
   width: 100%;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--color-secondary);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Title */
@@ -127,7 +128,7 @@ body {
 /* Buttons */
 button {
   background-color: var(--color-primary);
-  color: var(--color-text-main);
+  color: var(--color-bg);
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -139,7 +140,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffd700; /* A darker yellow for hover */
+  background-color: #e6b800; /* A darker yellow for hover */
 }
 
 /* Visually hidden utility class (for screen readers) */
@@ -152,4 +153,91 @@ button:hover {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* Demo Sections */
+.demo {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.demo h3 {
+  color: var(--color-text-header);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.demo p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Accessible Navigation Demo */
+.accessible-demo nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.accessible-demo nav a {
+  color: var(--color-text-header);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.accessible-demo nav a:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.accessible-demo nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Inaccessible Navigation Demo */
+.inaccessible-demo .fake-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.inaccessible-demo .fake-nav span {
+  color: var(--color-text-header);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.inaccessible-demo .fake-nav span:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Colorblind Toggle */
+.colorblind-view {
+  filter: grayscale(100%);
+}
+
+/* Colorblind Simulation Filters */
+.colorblind-protanopia {
+  filter: url("#protanopia");
+}
+
+.colorblind-deuteranopia {
+  filter: url("#deuteranopia");
+}
+
+.colorblind-tritanopia {
+  filter: url("#tritanopia");
+}
+
+/* SVG Filters for Colorblindness Simulation */
+svg.defs-only {
+  position: absolute;
+  width: 0;
+  height: 0;
 }

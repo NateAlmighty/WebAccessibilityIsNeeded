@@ -15,6 +15,36 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <!-- svg classes -->
+    <svg class="defs-only">
+      <filter id="protanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.567, 0.433, 0, 0, 0
+              0.558, 0.442, 0, 0, 0
+              0, 0.242, 0.758, 0, 0
+              0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="deuteranopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.625, 0.375, 0, 0, 0
+              0.7, 0.3, 0, 0, 0
+              0, 0.3, 0.7, 0, 0
+              0, 0, 0, 1, 0"
+        />
+      </filter>
+      <filter id="tritanopia">
+        <fecolormatrix
+          type="matrix"
+          values="0.95, 0.05, 0, 0, 0
+              0, 0.433, 0.567, 0, 0
+              0, 0.475, 0.525, 0, 0
+              0, 0, 0, 1, 0"
+        />
+      </filter>
+    </svg>
     <!-- Main Content -->
     <div class="wrapper">
       <div class="content" role="main">
@@ -23,7 +53,9 @@
 
         <!-- Introduction -->
         <section aria-labelledby="introduction-heading">
-          <h2 id="introduction-heading" class="visually-hidden">Introduction</h2>
+          <h2 id="introduction-heading" class="visually-hidden">
+            Introduction
+          </h2>
           <p>
             Explore the differences between accessible and inaccessible web
             design. Use the buttons below to toggle between examples and
@@ -33,7 +65,9 @@
 
         <!-- Accessible vs. Inaccessible Navigation -->
         <section aria-labelledby="navigation-demo-heading">
-          <h2 id="navigation-demo-heading">Navigation: Accessible vs. Inaccessible</h2>
+          <h2 id="navigation-demo-heading">
+            Navigation: Accessible vs. Inaccessible
+          </h2>
 
           <!-- Accessible Navigation Demo -->
           <div class="demo accessible-demo">
@@ -63,7 +97,11 @@
               This example shows common accessibility failures: missing focus
               states, non-semantic HTML, and poor keyboard navigation.
             </p>
-            <div class="fake-nav" role="navigation" aria-label="Inaccessible Navigation Demo">
+            <div
+              class="fake-nav"
+              role="navigation"
+              aria-label="Inaccessible Navigation Demo"
+            >
               <span onclick="alert('Home clicked')">Home</span>
               <span onclick="alert('About clicked')">About</span>
               <span onclick="alert('Services clicked')">Services</span>
@@ -83,7 +121,10 @@
             Experience how a screen reader interacts with accessible and
             inaccessible content.
           </p>
-          <button id="screen-reader-demo-button" aria-label="Play screen reader demo">
+          <button
+            id="screen-reader-demo-button"
+            aria-label="Play screen reader demo"
+          >
             Play Screen Reader Demo
           </button>
         </section>
@@ -92,7 +133,8 @@
         <section aria-labelledby="colorblind-demo-heading">
           <h2 id="colorblind-demo-heading">Colorblindness Demo</h2>
           <p>
-            See how color choices affect readability for users with colorblindness.
+            See how color choices affect readability for users with
+            colorblindness.
           </p>
           <button id="colorblind-toggle" aria-pressed="false">
             Toggle Colorblind View

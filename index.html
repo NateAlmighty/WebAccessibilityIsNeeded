@@ -19,27 +19,27 @@
           <p>Explore the differences between accessible and inaccessible web design. Use the examples below to experience the challenges faced by users with disabilities.</p>
         </section>
 
-    <!-- SVG Filters for Colorblindness Simulation -->
-    <svg class="defs-only">
-      <filter id="protanopia">
-        <fecolormatrix
-          type="matrix"
-          values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"
-        />
-      </filter>
-      <filter id="deuteranopia">
-        <fecolormatrix
-          type="matrix"
-          values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"
-        />
-      </filter>
-      <filter id="tritanopia">
-        <fecolormatrix
-          type="matrix"
-          values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"
-        />
-      </filter>
-    </svg>
+        <!-- SVG Filters for Colorblindness Simulation -->
+        <svg class="defs-only">
+          <filter id="protanopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0"
+            />
+          </filter>
+          <filter id="deuteranopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0"
+            />
+          </filter>
+          <filter id="tritanopia">
+            <fecolormatrix
+              type="matrix"
+              values="0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0"
+            />
+          </filter>
+        </svg>
 
         <!-- Focus Management -->
         <section aria-labelledby="focus-management-heading">
@@ -126,6 +126,8 @@
             <button class="instant-action-button" style="width: 20px; height: 20px">Click Me</button>
             <p><strong>Try it:</strong> Click and hold the button. Notice that the action triggers immediately and cannot be canceled.</p>
           </div>
+        </section>
+
         <!-- Concurrent Input Mechanisms -->
         <section aria-labelledby="input-mechanisms-heading">
           <h2 id="input-mechanisms-heading">
@@ -161,6 +163,7 @@
             </div>
             <p><strong>Try it:</strong> Attempt to use the keyboard to interact with the slider. Notice it does not work.</p>
           </div>
+        </section>
 
         <!-- Animation from Interactions -->
         <section aria-labelledby="animation-from-interactions-heading">
@@ -203,8 +206,9 @@
             ></div>
           </div>
         </section>
+
+        <!-- Colorblind Toggle Button -->
         <section>
-          <!-- Colorblind Toggle Button -->
           <button id="colorblind-toggle" aria-pressed="false">
             Toggle Default View
           </button>
@@ -436,7 +440,7 @@
             </div>
           </footer>
         </section>
-      </div>
+      </main>
     </div>
   </body>
 </html>

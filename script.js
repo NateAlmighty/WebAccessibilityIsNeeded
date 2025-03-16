@@ -118,10 +118,6 @@ function inaccessibleButton() {
   });
 }
 
-// Call the functions to add event listeners
-inaccessibleSlider();
-inaccessibleButton();
-
 // Toggle Animation Visibility
 function toggleAnimation() {
   const box = document.getElementById("animated-box");
@@ -146,3 +142,8 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
   });
 });
+
+
+// Call the functions to add event listeners
+inaccessibleSlider();
+inaccessibleButton();

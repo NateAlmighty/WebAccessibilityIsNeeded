@@ -113,10 +113,7 @@ html, body {
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   height: 100%; /* Ensure full height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; /* Stack elements vertically */
+  overflow: auto; /* Allow scrolling */
 }
 
 h1, h2, h3 {

@@ -4,10 +4,10 @@ Default Styles
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #1a1a1a; /* Dark background */
-  --color-text-main: #ffffff; /* White text */
+  --color-bg: #121212; /* Dark background */
+  --color-text-main: #e0e0e0; /* Light gray text */
   --color-text-header: #ffcc00; /* Yellow for headers */
-  --color-primary: #ffcc00; /* Yellow for buttons and accents */
+  --color-primary: #bb86fc; /* Purple for buttons and accents */
   --color-secondary: #333333; /* Dark gray for secondary elements */
   --wrapper-height: 87vh;
   --image-max-width: 300px;
@@ -108,12 +108,13 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
 }
 
 h1, h2, h3 {
   font-family: 'Helvetica', sans-serif;
-  color: #222;
+  color: var(--color-text-header);
 }
 
 p {
@@ -128,73 +129,11 @@ p {
 .content {
   padding: 2rem;
   margin-bottom: 2rem;
-}
-
-/* Button Styles */
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-button:focus {
-  outline: 3px solid #0056b3;
-  outline-offset: 2px;
-}
-
-/* Color Scheme */
-:root {
-  --color-bg: #f8f9fa;
-  --color-text-main: #333;
-  --color-text-header: #007bff;
-  --color-primary: #007bff;
-  --color-secondary: #6c757d;
-}
-
-/* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 1rem;
-}
-
-.content {
-  max-width: 800px;
-  width: 100%;
-  padding: 2rem;
   background-color: var(--color-secondary);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Title */
-.title {
-  color: var(--color-text-header);
-  font-family: var(--font-family-header);
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-/* Description text */
-.content p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
 /* Button Styles */
 button {
   background-color: var(--color-primary);
@@ -217,7 +156,7 @@ button {
 
 /* Hover State */
 button:hover {
-  background-color: #e6b800; /* A darker yellow for hover */
+  background-color: #3700b3;
 }
 
 /* Focus State */

@@ -116,17 +116,18 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Stack elements vertically */
 }
 
 h1, h2, h3 {
   font-family: 'Helvetica', sans-serif;
   color: var(--color-text-header);
-  margin: auto;
+  text-align: center; /* Center-align text */
 }
 
 p {
   margin-bottom: 1.5rem; /* Increase margin for better spacing */
-  margin: auto;
+  text-align: center; /* Center-align text */
 }
 
 /* Consistent Spacing */
@@ -202,13 +203,13 @@ button:focus {
   color: var(--color-text-header);
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  margin: auto;
+  text-align: center; /* Center-align text */
 }
 
 .demo p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  margin: auto;
+  text-align: center; /* Center-align text */
 }
 
 /* Accessible Navigation Demo */
@@ -218,6 +219,7 @@ button:focus {
   margin: 0 auto; /* Center the navigation */
   display: flex;
   gap: 1rem;
+  justify-content: center; /* Center-align navigation items */
 }
 
 /* Inaccessible Navigation Demo */
@@ -225,6 +227,7 @@ button:focus {
   display: flex;
   gap: 1rem;
   margin: auto;
+  justify-content: center; /* Center-align navigation items */
 }
 
 .inaccessible-demo .fake-nav span {
@@ -233,7 +236,6 @@ button:focus {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  margin: auto;
 }
 
 .inaccessible-demo .fake-nav span:hover {

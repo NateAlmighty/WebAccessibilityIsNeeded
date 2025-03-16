@@ -15,6 +15,7 @@ Default Styles
   --font-family: "HK Grotesk", sans-serif;
   --font-family-header: "HK Grotesk", sans-serif;
 
+
   /* Colors that are problematic for colorblind users */
   --color-problematic-red: #f44336; /* Red */
   --color-problematic-green: #4caf50; /* Green */

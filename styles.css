@@ -194,19 +194,19 @@ button:focus {
   border-radius: 8px;
   background-color: var(--color-secondary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: 800px; /* Limit the maximum width */
+  text-align: center; /* Center-align text */
 }
 
 .demo h3 {
   color: var(--color-text-header);
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  text-align: center; /* Center-align text */
 }
 
 .demo p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  text-align: center; /* Center-align text */
 }
 
 /* Accessible Navigation Demo */

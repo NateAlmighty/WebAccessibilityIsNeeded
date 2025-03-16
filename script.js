@@ -102,7 +102,47 @@ function toggleAnimation() {
   }
 }
 
+// Inaccessible Slider Function
+function inaccessibleSlider() {
+  const slider = document.querySelector('.inaccessible-demo .fake-slider');
+  slider.addEventListener('mousedown', function () {
+    alert('Slider activated');
+  });
+}
+
+// Inaccessible Button Function
+function inaccessibleButton() {
+  const button = document.querySelector('.inaccessible-demo .instant-action-button');
+  button.addEventListener('mousedown', function () {
+    alert('Action triggered immediately on button down');
+  });
+}
+
+// Call the functions to add event listeners
+inaccessibleSlider();
+inaccessibleButton();
+
+// Toggle Animation Visibility
+function toggleAnimation() {
+  const box = document.getElementById("animated-box");
+  if (box.style.animation) {
+    box.style.animation = "";
+  } else {
+    box.style.animation = "bounce 2s infinite";
+  }
+}
+
 // Update Slider Value Dynamically
 function updateSliderValue(value) {
   document.getElementById("slider-value").textContent = value;
 }
+
+// Smooth Scroll for Navigation Links
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});

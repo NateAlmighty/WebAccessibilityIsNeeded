@@ -9,6 +9,16 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="title">Accessibility is a Requirement</h1>
+      </header>
+      <main class="content">
+        <section aria-labelledby="introduction-heading">
+          <h2 id="introduction-heading" class="visually-hidden">Introduction</h2>
+          <p>Explore the differences between accessible and inaccessible web design. Use the examples below to experience the challenges faced by users with disabilities.</p>
+        </section>
+
     <!-- SVG Filters for Colorblindness Simulation -->
     <svg class="defs-only">
       <filter id="protanopia">
@@ -30,24 +40,6 @@
         />
       </filter>
     </svg>
-
-    <!-- Main Content -->
-    <div class="wrapper">
-      <div class="content" role="main">
-        <!-- Portfolio Title -->
-        <h1 class="title">Accessibility is a Requirement</h1>
-
-        <!-- Introduction -->
-        <section aria-labelledby="introduction-heading">
-          <h2 id="introduction-heading" class="visually-hidden">
-            Introduction
-          </h2>
-          <p>
-            Explore the differences between accessible and inaccessible web
-            design. Use the examples below to experience the challenges faced by
-            users with disabilities.
-          </p>
-        </section>
 
         <!-- Focus Management -->
         <section aria-labelledby="focus-management-heading">
@@ -126,25 +118,14 @@
               pointer away before releasing. The action will not trigger.
             </p>
           </div>
+          
+          <!-- Inaccessible Button -->
           <div class="demo inaccessible-demo">
             <h3>Inaccessible Pointer Cancellation and Target Size</h3>
-            <p>
-              This button triggers an action immediately on press, does not
-              allow cancellation, and has a small target size.
-            </p>
-            <button
-              style="width: 20px; height: 20px"
-              onclick="alert('Action triggered')"
-            >
-              Click Me
-            </button>
-            <p>
-              <strong>Try it:</strong> Click and hold the button. Notice that
-              the action triggers immediately and cannot be canceled.
-            </p>
+            <p>This button triggers an action immediately on press, does not allow cancellation, and has a small target size.</p>
+            <button class="instant-action-button" style="width: 20px; height: 20px">Click Me</button>
+            <p><strong>Try it:</strong> Click and hold the button. Notice that the action triggers immediately and cannot be canceled.</p>
           </div>
-        </section>
-
         <!-- Concurrent Input Mechanisms -->
         <section aria-labelledby="input-mechanisms-heading">
           <h2 id="input-mechanisms-heading">
@@ -170,23 +151,16 @@
               adjust the value.
             </p>
           </div>
+
+          <!-- Inaccessible Slider -->
           <div class="demo inaccessible-demo">
             <h3>Inaccessible Input Mechanisms</h3>
-            <p>
-              This slider only works with touch input and is not operable via
-              keyboard.
-            </p>
-            <div style="width: 200px; height: 20px; background-color: #ccc">
-              <div
-                style="width: 50%; height: 100%; background-color: #000"
-              ></div>
+            <p>This slider only works with touch input and is not operable via keyboard.</p>
+            <div class="fake-slider" style="width: 200px; height: 20px; background-color: #ccc">
+              <div style="width: 50%; height: 100%; background-color: #000"></div>
             </div>
-            <p>
-              <strong>Try it:</strong> Attempt to use the keyboard to interact
-              with the slider. Notice it does not work.
-            </p>
+            <p><strong>Try it:</strong> Attempt to use the keyboard to interact with the slider. Notice it does not work.</p>
           </div>
-        </section>
 
         <!-- Animation from Interactions -->
         <section aria-labelledby="animation-from-interactions-heading">
@@ -406,7 +380,7 @@
               padding: 40px;
               background-color: #e8e8e8;
               border-radius: 10px;
-              boxshadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             "
           >
             <h2

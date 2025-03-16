@@ -103,13 +103,62 @@ END Glitch hello-app default styles
 ******************************************************************************/
 
 /* Custom styles for the Accessibility Portfolio */
+/* Improve Typography */
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-bg);
-  color: var(--color-text-main);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'Helvetica', sans-serif;
+  color: #222;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Consistent Spacing */
+.wrapper {
+  padding: 2rem;
+}
+
+.content {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: 3px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* Color Scheme */
+:root {
+  --color-bg: #f8f9fa;
+  --color-text-main: #333;
+  --color-text-header: #007bff;
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
 }
 
 /* Page structure */

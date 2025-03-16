@@ -104,7 +104,7 @@ END Glitch hello-app default styles
 
 /* Custom styles for the Accessibility Portfolio */
 /* Improve Typography */
-body {
+html, body {
   font-family: 'Arial', sans-serif;
   font-size: 18px; /* Increase font size for better readability */
   line-height: 1.6; /* Increase line height for better readability */
@@ -112,6 +112,10 @@ body {
   background-color: var(--color-bg); /* Ensure the entire background is dark */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
+  height: 100%; /* Ensure full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1, h2, h3 {
@@ -126,6 +130,9 @@ p {
 /* Consistent Spacing */
 .wrapper {
   padding: 2rem;
+  width: 100%;
+  max-width: 1200px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the wrapper */
 }
 
 .content {

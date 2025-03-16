@@ -118,21 +118,13 @@ function inaccessibleButton() {
   });
 }
 
-// Toggle Animation Visibility
-function toggleAnimation() {
-  const box = document.getElementById("animated-box");
-  if (box.style.animation) {
-    box.style.animation = "";
-  } else {
-    box.style.animation = "bounce 2s infinite";
-  }
-}
-
 // Update Slider Value Dynamically
 function updateSliderValue(value) {
   document.getElementById("slider-value").textContent = value;
 }
 
 // Call the functions to add event listeners
-inaccessibleSlider();
-inaccessibleButton();
+document.addEventListener('DOMContentLoaded', () => {
+  inaccessibleSlider();
+  inaccessibleButton();
+});

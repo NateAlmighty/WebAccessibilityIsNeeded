@@ -133,17 +133,6 @@ function updateSliderValue(value) {
   document.getElementById("slider-value").textContent = value;
 }
 
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('nav a').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-
-
 // Call the functions to add event listeners
 inaccessibleSlider();
 inaccessibleButton();

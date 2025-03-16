@@ -110,8 +110,8 @@ html, body {
   line-height: 1.6; /* Increase line height for better readability */
   color: var(--color-text-main);
   background-color: var(--color-bg); /* Ensure the entire background is dark */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  margin: auto;
+  padding: auto;
   height: 100%; /* Ensure full height */
   display: flex;
   justify-content: center;
@@ -121,10 +121,12 @@ html, body {
 h1, h2, h3 {
   font-family: 'Helvetica', sans-serif;
   color: var(--color-text-header);
+  margin: auto;
 }
 
 p {
   margin-bottom: 1.5rem; /* Increase margin for better spacing */
+  margin: auto;
 }
 
 /* Consistent Spacing */
@@ -132,12 +134,13 @@ p {
   padding: 2rem;
   width: 100%;
   max-width: 1200px; /* Limit the maximum width */
-  margin: 0 auto; /* Center the wrapper */
+  margin: auto; /* Center the wrapper */
 }
 
 .content {
   padding: 2rem;
   margin-bottom: 2rem;
+  margin: auto;
   background-color: var(--color-secondary);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -154,7 +157,7 @@ button {
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  margin: 0.5rem 0;
+  margin: auto;
   white-space: nowrap; /* Prevent text wrapping */
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
   overflow: hidden; /* Hide overflowed text */
